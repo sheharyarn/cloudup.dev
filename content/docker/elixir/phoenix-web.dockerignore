@@ -1,0 +1,22 @@
+# Elixir Artifacts
+/_build/
+/deps/
+/doc/
+/cover/
+/.fetch
+/.iex.exs
+/test/
+*.ez
+@{APP_NAME}-*.tar
+erl_crash.dump
+
+
+# Node Artifacts
+npm-debug.log
+/assets/node_modules/
+/priv/static/
+
+
+# Docker
+Dockerfile
+.dockerignore

@@ -1,0 +1,8 @@
+/_build/
+/deps/
+/doc/
+/cover/
+/.fetch
+*.ez
+@{APP_NAME}-*.tar
+erl_crash.dump

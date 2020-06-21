@@ -1,0 +1,33 @@
+platform: Elixir
+variations:
+
+  - name: Plain Elixir
+    description: Simple & pure Elixir applications without any framework
+    files:
+      dockerfile:   plain.dockerfile
+      dockerignore: plain.dockerignore
+    variables:
+      - name:  ELIXIR_VERSION
+        value: 1.10.4
+      - name:  APP_NAME
+        value: my_app
+      - name:  MIX_ENV
+        value: prod
+      - name:  PORT
+        value: 3000
+
+  - name: Phoenix Web App
+    description: Elixir apps built using the Phoenix Framework
+    files:
+      dockerfile:   phoenix-web.dockerfile
+      dockerignore: phoenix-web.dockerignore
+    variables:
+      - name:  ELIXIR_VERSION
+        value: 1.10.4
+      - name:  APP_NAME
+        value: my_app
+      - name:  MIX_ENV
+        value: prod
+      - name:  PORT
+        value: 4000
+
