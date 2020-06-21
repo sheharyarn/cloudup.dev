@@ -1,0 +1,178 @@
+@import '~normalize-scss/sass/normalize/import-now'
+
+@import './fonts/blacker-display'
+@import './fonts/aquawax-pro'
+@import './fonts/jetbrains-mono'
+
+
+
+
+// Layouts
+// -------
+
+
+html
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
+  font-family: $font-content
+  font-size: 62.5%
+
+
+body
+  color: $gray-darker
+
+  *
+    box-sizing: border-box
+
+
+footer
+  +margin($bottom: 15rem)
+  +media-breakpoint-down(small)
+    +margin($bottom: 7rem)
+
+
+img
+  max-width: 100%
+
+
+hr
+  +margin($vert: 5rem)
+  height: 0
+  border: 0
+  border-top: 1px solid $gray-lighter
+
+
+
+
+
+// Typography
+// ----------
+
+
+p, ol, ul, li,
+h1, h2, h3, h4, h5, h6
+  +margin($all: 0)
+
+
+h1
+  +heading
+  font-size: 5.5rem
+
+h2
+  +heading
+  +margin($top: 5rem, $bottom: 1.3rem)
+  font-size: 3.7rem
+
+h3
+  +heading
+  +margin($top: 4rem, $bottom: 1.2rem)
+  font-size: 3rem
+
+h4
+  +heading
+  +margin($top: 3rem, $bottom: 1rem)
+  font-size: 2.5rem
+
+h5
+  +heading-small
+  +margin($top: 2.5rem, $bottom: 1rem)
+  font-size: 2rem
+
+h6
+  +heading-small
+  +margin($top: 2.5rem, $bottom: 1rem)
+  font-size: 1.7rem
+
+
+
+p
+  +content
+  +margin($vert: 2rem)
+
+ul, ol
+  +content
+
+  li
+    +margin($top: 1rem)
+
+    > p
+      +margin($bottom: 0)
+
+a
+  color: inherit // CHANGE THIS!
+  cursor: pointer
+
+
+b, strong
+  font-weight: 600
+
+
+
+
+
+// Code Blocks
+// -----------
+
+
+$code-prefix: "language-"
+
+
+code[class*=#{$code-prefix}],
+pre[class*=#{$code-prefix}]
+  border-radius: $border-radius
+  font-family: $font-code
+  font-size: 1.5rem
+  // Manual override of material theme
+  color: #8577b5
+
+  +media-breakpoint-down(small)
+    font-size: 1.3rem
+
+
+pre[class*=#{$code-prefix}]
+  +margin($vert: 2rem)
+
+
+code[class*=#{$code-prefix}]
+  *:not(pre) > &
+    +padding($vert: 0.3rem)
+    +padding($horz: 0.7rem)
+    border-radius: $border-radius
+
+    // Don't break/wrap inline code blocks on larger screens
+    +media-breakpoint-up(medium)
+      white-space: pre
+
+  // TODO: Move this to link style
+  a > &
+    color: #7c4dff
+
+
+
+
+// Post-specific
+// -------------
+
+
+article#post
+  .footnotes li
+    +margin($bottom: 1rem)
+    color: $gray-dark
+    font-size: 1.5rem
+
+    +media-breakpoint-down(small)
+      font-size: 1.3rem
+
+    p
+      display: inline
+      font-size: inherit
+
+    code
+      font-size: 1.3rem
+
+      +media-breakpoint-down(small)
+        font-size: 1.1rem
+
+    .footnote-backref
+      font-weight: 800
+      text-decoration: none

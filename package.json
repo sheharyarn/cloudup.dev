@@ -1,0 +1,61 @@
+{
+  "name": ">>> CloudUp",
+  "private": true,
+  "description": "Tools to upstart your development on Cloud",
+  "version": "0.1.0",
+  "author": "Sheharyar Naseer <hi@shyr.io>",
+  "dependencies": {
+    "gatsby": "^2.20.12",
+    "gatsby-image": "^2.3.1",
+    "gatsby-plugin-feed": "^2.4.1",
+    "gatsby-plugin-google-analytics": "^2.2.2",
+    "gatsby-plugin-manifest": "^2.3.3",
+    "gatsby-plugin-offline": "^3.1.2",
+    "gatsby-plugin-react-helmet": "^3.2.1",
+    "gatsby-plugin-sass": "^2.3.2",
+    "gatsby-plugin-sharp": "^2.5.3",
+    "gatsby-plugin-typescript": "^2.3.1",
+    "gatsby-remark-copy-linked-files": "^2.2.1",
+    "gatsby-remark-images": "^3.2.1",
+    "gatsby-remark-prismjs": "^3.4.1",
+    "gatsby-remark-responsive-iframe": "^2.3.1",
+    "gatsby-remark-smartypants": "^2.2.1",
+    "gatsby-source-filesystem": "^2.2.2",
+    "gatsby-transformer-remark": "^2.7.1",
+    "gatsby-transformer-sharp": "^2.4.3",
+    "lodash": "^4.17.15",
+    "moment": "^2.26.0",
+    "node-sass": "^4.14.1",
+    "normalize-scss": "^7.0.1",
+    "prism-themes": "^1.4.0",
+    "prismjs": "^1.19.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^3.10.0"
+  },
+  "devDependencies": {
+    "gatsby-plugin-root-import": "^2.0.5",
+    "prettier": "^2.0.5",
+    "sass-resources-loader": "^2.0.3"
+  },
+  "homepage": ">>>> https://shyr.io/",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sheharyarn/shyr.io.git"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  }
+}

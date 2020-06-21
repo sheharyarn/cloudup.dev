@@ -1,0 +1,15 @@
+/**
+ * AquaWax Font Family
+ */
+@font-face { font-family: 'Aquawax'; font-weight: 200; font-style: normal; font-display: fallback; src: url('./fonts/Aquawax/AquawaxPro-ExtraLight.otf')        format('opentype'); }
+@font-face { font-family: 'Aquawax'; font-weight: 200; font-style: italic; font-display: fallback; src: url('./fonts/Aquawax/AquawaxPro-ExtraLightItalic.otf')  format('opentype'); }
+@font-face { font-family: 'Aquawax'; font-weight: 300; font-style: normal; font-display: fallback; src: url('./fonts/Aquawax/AquawaxPro-Light.otf')             format('opentype'); }
+@font-face { font-family: 'Aquawax'; font-weight: 300; font-style: italic; font-display: fallback; src: url('./fonts/Aquawax/AquawaxPro-LightItalic.otf')       format('opentype'); }
+@font-face { font-family: 'Aquawax'; font-weight: 400; font-style: normal; font-display: fallback; src: url('./fonts/Aquawax/AquawaxPro-Regular.otf')           format('opentype'); }
+@font-face { font-family: 'Aquawax'; font-weight: 400; font-style: italic; font-display: fallback; src: url('./fonts/Aquawax/AquawaxPro-RegularItalic.otf')     format('opentype'); }
+@font-face { font-family: 'Aquawax'; font-weight: 500; font-style: normal; font-display: fallback; src: url('./fonts/Aquawax/AquawaxPro-Medium.otf')            format('opentype'); }
+@font-face { font-family: 'Aquawax'; font-weight: 500; font-style: italic; font-display: fallback; src: url('./fonts/Aquawax/AquawaxPro-MediumItalic.otf')      format('opentype'); }
+@font-face { font-family: 'Aquawax'; font-weight: 600; font-style: normal; font-display: fallback; src: url('./fonts/Aquawax/AquawaxPro-DemiBold.otf')          format('opentype'); }
+@font-face { font-family: 'Aquawax'; font-weight: 600; font-style: italic; font-display: fallback; src: url('./fonts/Aquawax/AquawaxPro-DemiBoldItalic.otf')    format('opentype'); }
+@font-face { font-family: 'Aquawax'; font-weight: 700; font-style: normal; font-display: fallback; src: url('./fonts/Aquawax/AquawaxPro-Bold.otf')              format('opentype'); }
+@font-face { font-family: 'Aquawax'; font-weight: 700; font-style: italic; font-display: fallback; src: url('./fonts/Aquawax/AquawaxPro-BoldItalic.otf')        format('opentype'); }

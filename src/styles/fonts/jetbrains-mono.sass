@@ -1,0 +1,28 @@
+/**
+ * Jetbrains Mono Font Family
+ */
+
+
+// Custom Mixin to define font variations
+@mixin jetbrains-mono($weight, $style, $name)
+  $path: "./fonts/JetBrainsMono/JetBrainsMono-" + $name
+
+  @font-face
+    font-family: "JetBrains Mono"
+    font-style: $style
+    font-weight: $weight
+    font-display: swap
+    font-feature-settings: "calt" 1, "zero" 1
+    src: url($path + ".woff2") format("woff2"), url($path + ".woff") format("woff")
+
+
+// All Jetbrains Mono variations
++jetbrains-mono(400, normal, "Regular")
++jetbrains-mono(400, italic, "Italic")
++jetbrains-mono(500, normal, "Medium")
++jetbrains-mono(500, italic, "Medium-Italic")
++jetbrains-mono(700, normal, "Bold")
++jetbrains-mono(700, italic, "Bold-Italic")
++jetbrains-mono(800, normal, "ExtraBold")
++jetbrains-mono(800, italic, "ExtraBold-Italic")
+

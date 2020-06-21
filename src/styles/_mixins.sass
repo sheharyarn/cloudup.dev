@@ -1,0 +1,106 @@
+
+// Core
+// ----
+
+
+@mixin margin($all: null, $horz: null, $vert: null, $top: null, $bottom: null, $left: null, $right: null)
+  @if $all
+    margin: $all
+  @else if $horz
+    margin-right: $horz
+    margin-left: $horz
+  @else if $vert
+    margin-top: $vert
+    margin-bottom: $vert
+  @else
+    margin-top: $top
+    margin-right: $right
+    margin-bottom: $bottom
+    margin-left: $left
+
+
+@mixin padding($all: null, $horz: null, $vert: null, $top: null, $bottom: null, $left: null, $right: null)
+  @if $all
+    padding: $all
+  @else if $horz
+    padding-right: $horz
+    padding-left: $horz
+  @else if $vert
+    padding-top: $vert
+    padding-bottom: $vert
+  @else
+    padding-top: $top
+    padding-right: $right
+    padding-bottom: $bottom
+    padding-left: $left
+
+
+
+
+// Layouts
+// -------
+
+
+@mixin container($width)
+  +margin($horz: 10rem)
+  max-width: $width
+
+  +media-breakpoint-down(small)
+    +margin($horz: 2.5rem)
+
+
+@mixin title
+  +heading
+  +container($title-container-width)
+  font-size: 5.5rem
+
+  +media-breakpoint-down(small)
+    font-size: 5rem
+
+
+
+
+// Typography
+// ----------
+
+
+$content-line-height: 1.5
+$heading-line-height: 1.3
+
+
+@mixin content
+  line-height: $content-line-height
+  font-family: $font-content
+  font-size: 1.9rem
+  font-weight: 300
+
+  +media-breakpoint-down(small)
+    font-size: 1.7rem
+
+
+@mixin heading
+  +margin($bottom: 1rem)
+  line-height: $heading-line-height
+  font-family: $font-heading
+  font-weight: 700
+
+  a
+    text-decoration: none
+
+
+@mixin heading-small
+  line-height: $heading-line-height
+  font-family: $font-content
+  font-weight: 700
+
+  a
+    text-decoration: none
+
+
+@mixin label
+  +margin($bottom: 1rem)
+  line-height: $heading-line-height
+  font-family: $font-content
+  font-weight: 600
+  font-size: 1.1rem
+  text-transform: uppercase

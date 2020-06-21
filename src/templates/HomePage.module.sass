@@ -1,0 +1,71 @@
+.header
+  +container($base-container-width)
+  +margin($top: 17rem, $bottom: 10rem)
+
+  .name
+    +margin($bottom: 2rem)
+    font-size: 5rem
+
+  .intro
+    max-width: 60rem
+
+.social
+  $icon-spacing: 1rem
+  +margin($top: 3rem, $left: -$icon-spacing)
+  font-size: 2rem
+  line-height: 1
+
+  a
+    +padding($all: $icon-spacing)
+    color: $gray-light
+
+    &:hover
+      color: $gray-darker
+
+.recent
+  $date-width: 7.5rem
+  +container($title-container-width)
+
+  +media-breakpoint-up(large)
+    display: flex
+
+
+  a
+    text-decoration: none
+
+  .recentSection
+    max-width: 35rem
+    +margin($bottom: 9rem)
+
+    +media-breakpoint-up(large)
+      &:first-of-type
+        +margin($right: 15rem)
+
+    h3
+      +label
+      +margin($bottom: 2rem)
+      color: $gray
+
+    ul
+      padding: 0
+
+    li
+      +margin($bottom: 1rem)
+      list-style: none
+      display: flex
+
+      > time
+        padding-top: 3px
+        font-size: 1.1rem
+        text-transform: uppercase
+        white-space: nowrap
+        min-width: $date-width
+        color: $gray
+
+      > a
+        font-size: 1.5rem
+        flex-grow: 1
+
+    .seeMore
+      +label
+      +margin($top: 2rem, $left: $date-width)
