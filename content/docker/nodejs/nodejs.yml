@@ -1,0 +1,19 @@
+platform: Node.js
+variations:
+
+  - id: plain
+    name: Node.js
+    description: Simple Node.js applications
+    files:
+      dockerfile:   plain.dockerfile
+      dockerignore: plain.dockerignore
+    variables:
+      - name:  NODE_VERSION
+        value: 14.5.0
+      - name:  DEFAULT_ENV
+        value: production
+      - name:  PORT
+        value: 8080
+      - name:  APP_ENTRYPOINT
+        value: index.js
+
