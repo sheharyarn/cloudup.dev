@@ -64,7 +64,7 @@ ENV MIX_ENV ${MIX_ENV}
 ENV APP_NAME @{APP_NAME}
 
 
-# Limit app permissions
+# Create user and limit permissions
 RUN addgroup -S app && \
     adduser -S app app && \
     mkdir /app && \

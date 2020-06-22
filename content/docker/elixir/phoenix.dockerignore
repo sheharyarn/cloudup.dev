@@ -17,6 +17,12 @@ npm-debug.log
 /priv/static/
 
 
+# Git
+.git
+.gitignore
+
+
 # Docker
-Dockerfile
+Dockerfile*
+docker-compose
 .dockerignore

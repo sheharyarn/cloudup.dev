@@ -1,3 +1,4 @@
+# Elixir
 /_build/
 /deps/
 /doc/
@@ -6,3 +7,14 @@
 *.ez
 @{APP_NAME}-*.tar
 erl_crash.dump
+
+
+# Git
+.git
+.gitignore
+
+
+# Docker
+Dockerfile*
+docker-compose
+.dockerignore

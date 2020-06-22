@@ -1,7 +1,8 @@
 platform: Elixir
 variations:
 
-  - name: Plain Elixir
+  - id: plain
+    name: Plain Elixir
     description: Simple & pure Elixir applications without any framework
     files:
       dockerfile:   plain.dockerfile
@@ -16,11 +17,12 @@ variations:
       - name:  PORT
         value: 3000
 
-  - name: Phoenix Web App
+  - id: phoenix
+    name: Phoenix Web App
     description: Elixir apps built using the Phoenix Framework
     files:
-      dockerfile:   phoenix-web.dockerfile
-      dockerignore: phoenix-web.dockerignore
+      dockerfile:   phoenix.dockerfile
+      dockerignore: phoenix.dockerignore
     variables:
       - name:  ELIXIR_VERSION
         value: 1.10.4
