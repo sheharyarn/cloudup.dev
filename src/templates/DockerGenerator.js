@@ -3,15 +3,16 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import Layout from 'src/components/Layout';
-import styles from './HomePage.module.sass';
+import styles from './DockerGenerator.module.sass';
 
 
-const HomePage = ({ data, location }) => {
+const DockerGenerator = ({ data, location }) => {
   return (
     <Layout location={location}>
+      <h1>Hello!</h1>
     </Layout>
   )
 };
 
 
-export default HomePage;
+export default DockerGenerator;
