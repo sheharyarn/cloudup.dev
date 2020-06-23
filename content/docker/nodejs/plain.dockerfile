@@ -20,14 +20,6 @@ RUN npm install && npm cache clean --force --loglevel=error
 COPY . .
 
 
-# Create non-root user and limit access
-RUN addgroup -S app && \
-    adduser -S app app && \
-    chown -R app: /app
-
-USER app
-EXPOSE @{PORT}
-
-
 # Start app
+EXPOSE @{PORT}
 CMD ["node", "@{APP_ENTRYPOINT}"]
