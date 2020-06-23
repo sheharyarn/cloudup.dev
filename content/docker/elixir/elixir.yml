@@ -8,14 +8,14 @@ variations:
       dockerfile:   plain.dockerfile
       dockerignore: plain.dockerignore
     variables:
-      - name:  ELIXIR_VERSION
-        value: 1.10.4
-      - name:  APP_NAME
-        value: my_app
-      - name:  MIX_ENV
-        value: prod
-      - name:  PORT
-        value: 3000
+      - name:  'ELIXIR_VERSION'
+        value: '1.10.4'
+      - name:  'APP_NAME'
+        value: 'my_app'
+      - name:  'MIX_ENV'
+        value: 'prod'
+      - name:  'PORT'
+        value: '3000'
 
   - id: phoenix
     name: Phoenix Web App
@@ -24,12 +24,12 @@ variations:
       dockerfile:   phoenix.dockerfile
       dockerignore: phoenix.dockerignore
     variables:
-      - name:  ELIXIR_VERSION
-        value: 1.10.4
-      - name:  APP_NAME
-        value: my_app
-      - name:  MIX_ENV
-        value: prod
-      - name:  PORT
-        value: 4000
+      - name:  'ELIXIR_VERSION'
+        value: '1.10.4'
+      - name:  'APP_NAME'
+        value: 'my_app'
+      - name:  'MIX_ENV'
+        value: 'prod'
+      - name:  'PORT'
+        value: '4000'
 

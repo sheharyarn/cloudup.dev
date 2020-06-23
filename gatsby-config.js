@@ -14,6 +14,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-transformer-yaml`,
+      options: {
+        typeName: 'Yaml',
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/docker`,

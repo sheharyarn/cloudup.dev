@@ -8,23 +8,23 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  // For all Markdown files
-  if (node.internal.type === `MarkdownRemark`) {
+  // For all Yaml files
+  if (node.internal.type === `Yaml`) {
+    const parent = getNode(node.parent);
 
-    // Use parent directory for node type
-    const nodeType = getNode(node.parent).sourceInstanceName;
+    // Set tool (e.g. docker)
     createNodeField({
       node,
-      name: 'type',
-      value: nodeType,
+      name: 'tool',
+      value: parent.sourceInstanceName,
     });
 
-    // Use frontmatter value for slug
+    // Set platform (e.g. elixir, nodejs)
     createNodeField({
       node,
-      name: `slug`,
-      value: node.frontmatter.slug
-    });
+      name: 'platform',
+      value: parent.name,
+    })
   }
 };
 

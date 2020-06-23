@@ -1,5 +1,5 @@
 {
-  "name": ">>> CloudUp",
+  "name": "Cloudup.dev",
   "private": true,
   "description": "Tools to upstart your development on Cloud",
   "version": "0.1.0",
@@ -23,6 +23,7 @@
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-transformer-remark": "^2.7.1",
     "gatsby-transformer-sharp": "^2.4.3",
+    "gatsby-transformer-yaml": "^2.4.10",
     "lodash": "^4.17.15",
     "moment": "^2.26.0",
     "node-sass": "^4.14.1",
@@ -39,7 +40,7 @@
     "prettier": "^2.0.5",
     "sass-resources-loader": "^2.0.3"
   },
-  "homepage": ">>>> https://shyr.io/",
+  "homepage": "https://cloudup.dev/",
   "keywords": [
     "gatsby"
   ],
@@ -47,7 +48,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sheharyarn/shyr.io.git"
+    "url": "git+https://github.com/sheharyarn/cloudup.git"
   },
   "scripts": {
     "build": "gatsby build",
