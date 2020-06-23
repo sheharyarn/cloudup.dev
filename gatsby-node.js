@@ -1,5 +1,6 @@
-const path = require(`path`);
-const { createFilePath } = require(`gatsby-source-filesystem`);
+const fs = require('fs');
+const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
 const URLs = require('./src/utils/urls');
 
 
@@ -7,15 +8,25 @@ const ALL_CONTENT = `
   {
     docker: allYaml(filter: {fields: {tool: {eq: "docker"}}}) {
       nodes {
-        fields {
-          tool
-          platformSlug
+        variations {
+          id
+          files { dockerfile, dockerignore }
         }
-        variations { id }
+        fields { tool, platformSlug }
       }
     }
   }
 `;
+
+
+
+/**
+ * Templates for different content types
+ */
+const TEMPLATES = {
+  dockerVariant:  path.resolve('./src/templates/Docker/VariantTemplate.js'),
+  dockerPlatform: path.resolve('./src/templates/Docker/PlatformTemplate.js'),
+};
 
 
 
@@ -39,7 +50,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 
 
-
 /**
  * Create Pages from Nodes
  */
@@ -60,16 +70,27 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: URLs.docker.platform(platform),
       context: { platform },
-      component: null,
+      component: TEMPLATES.dockerPlatform,
     });
 
 
-    // Create page for each variant
-    dockerNode.variations.forEach(variant => {
+    // Create page for each variant (e.g. /docker/elixir/phoenix)
+    dockerNode.variations.forEach(variantData => {
+      const variant = variantData.id;
+
+      // Load file contents from id
+      const files =
+        Object
+          .keys(variantData.files)
+          .reduce((acc, filetype) => {
+            acc[filetype] = fs.readFileSync(`./content/docker/${platform}/${variant}.${filetype}`, 'utf-8');
+            return acc;
+          }, {});
+
       createPage({
         path: URLs.docker.variant(platform, variant),
-        context: { platform, variant },
-        component: null,
+        context: { platform, variant, files },
+        component: TEMPLATES.dockerVariant,
       });
     });
   });
