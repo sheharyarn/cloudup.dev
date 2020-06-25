@@ -41,21 +41,19 @@
 // -------
 
 
+@mixin flex-center($direction: column)
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: $direction
+
+
 @mixin container($width)
   +margin($horz: 10rem)
   max-width: $width
 
   +media-breakpoint-down(small)
     +margin($horz: 2.5rem)
-
-
-@mixin title
-  +heading
-  +container($title-container-width)
-  font-size: 5.5rem
-
-  +media-breakpoint-down(small)
-    font-size: 5rem
 
 
 

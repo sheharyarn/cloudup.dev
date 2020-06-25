@@ -14,11 +14,12 @@ html
   -moz-osx-font-smoothing: grayscale
   -webkit-font-smoothing: antialiased
   font-family: $font-content
-  font-size: 62.5%
+  font-size: $font-html-base
 
 
 body
-  color: $gray-darker
+  color: $gray-800
+  background-color: $gray-100
 
   *
     box-sizing: border-box
@@ -38,7 +39,7 @@ hr
   +margin($vert: 5rem)
   height: 0
   border: 0
-  border-top: 1px solid $gray-lighter
+  border-top: 1px solid $gray-300
 
 
 
@@ -156,7 +157,7 @@ code[class*=#{$code-prefix}]
 article#post
   .footnotes li
     +margin($bottom: 1rem)
-    color: $gray-dark
+    color: $gray-600
     font-size: 1.5rem
 
     +media-breakpoint-down(small)
