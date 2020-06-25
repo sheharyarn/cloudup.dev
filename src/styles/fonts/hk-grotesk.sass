@@ -1,0 +1,29 @@
+/**
+ * HK Grotesk Font Family
+ */
+
+
+// Custom Mixin to define font variations
+@mixin hk-grotesk($weight, $style, $name)
+  $path: "./fonts/HK-Grotesk/hkgrotesk-" + $name
+
+  @font-face
+    font-family: "HK Grotesk"
+    font-style: $style
+    font-weight: $weight
+    font-display: swap
+    src: url($path + ".eot")
+    src: url($path + ".eot?#iefix") format("embedded-opentype"), url($path + ".woff2") format("woff2"), url($path + ".woff") format("woff")
+
+
+// All variations
++hk-grotesk(300, normal, "light")
++hk-grotesk(300, italic, "lightitalic")
++hk-grotesk(400, normal, "regular")
++hk-grotesk(400, italic, "italic")
++hk-grotesk(500, normal, "medium")
++hk-grotesk(500, italic, "mediumitalic")
++hk-grotesk(700, normal, "semibold")
++hk-grotesk(700, italic, "semibolditalic")
++hk-grotesk(800, normal, "bold")
++hk-grotesk(800, italic, "bolditalic")

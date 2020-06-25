@@ -70,7 +70,7 @@ $heading-line-height: 1.3
   line-height: $content-line-height
   font-family: $font-content
   font-size: 1.9rem
-  font-weight: 300
+  font-weight: 400
 
   +media-breakpoint-down(small)
     font-size: 1.7rem
@@ -85,20 +85,3 @@ $heading-line-height: 1.3
   a
     text-decoration: none
 
-
-@mixin heading-small
-  line-height: $heading-line-height
-  font-family: $font-content
-  font-weight: 700
-
-  a
-    text-decoration: none
-
-
-@mixin label
-  +margin($bottom: 1rem)
-  line-height: $heading-line-height
-  font-family: $font-content
-  font-weight: 600
-  font-size: 1.1rem
-  text-transform: uppercase

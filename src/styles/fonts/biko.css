@@ -1,0 +1,17 @@
+/**
+ * Biko Font Family
+ */
+
+@font-face {
+	font-family: 'Biko';
+	src: url('./fonts/Biko/Biko-Regular.otf') format('opentype');
+	font-weight: 400;
+	font-display: block;
+}
+
+@font-face {
+	font-family: 'Biko';
+	src: url('./fonts/Biko/Biko-Bold.otf') format('opentype');
+	font-weight: 700;
+	font-display: block;
+}
