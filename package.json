@@ -1,7 +1,7 @@
 {
-  "name": "Cloudup.dev",
+  "name": "CloudUp.dev",
   "private": true,
-  "description": "Tools to upstart your development on Cloud",
+  "description": "Free tools to jump start your development on the cloud",
   "version": "0.1.0",
   "author": "Sheharyar Naseer <hi@shyr.io>",
   "dependencies": {
@@ -48,7 +48,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sheharyarn/cloudup.git"
+    "url": "git+https://github.com/sheharyarn/cloudup.dev.git"
   },
   "scripts": {
     "build": "gatsby build",

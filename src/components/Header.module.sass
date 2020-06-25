@@ -1,3 +1,15 @@
 .container
-  +container($base-container-width)
+  +flex-center
+  +padding($horz: 5rem)
+  +padding($vert: 10rem)
 
+  width: 100%
+  background: linear-gradient(135deg, $teal 0%, $cyan 100%)
+
+  .title
+    +margin($all: 0)
+    font-size: 7rem
+    color: $white
+
+  .tagline
+    color: $white

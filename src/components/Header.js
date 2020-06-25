@@ -8,6 +8,7 @@ const SITE_QUERY = graphql`
     site {
       siteMetadata {
         title
+        description
       }
     }
   }
@@ -16,15 +17,17 @@ const SITE_QUERY = graphql`
 
 const Header = () => {
   const data = useStaticQuery(SITE_QUERY);
-  const title = data.site.siteMetadata.title;
+  const { title, description } = data.site.siteMetadata;
 
   return (
     <header className={styles.container}>
-      <h3>
+      <h3 className={styles.title}>
         <Link to={`/`} className={styles.heading}>
           {title}
         </Link>
       </h3>
+
+      <p className={styles.tagline}>{description}</p>
     </header>
   );
 };
