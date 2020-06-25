@@ -10,7 +10,7 @@ const ALL_CONTENT = `
       nodes {
         variations {
           id
-          files { dockerfile, dockerignore }
+          files
         }
         fields { tool, platformSlug }
       }
@@ -80,8 +80,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
       // Load file contents from id
       const files =
-        Object
-          .keys(variantData.files)
+        variantData
+          .files
           .reduce((acc, filetype) => {
             acc[filetype] = fs.readFileSync(`./content/docker/${platform}/${variant}.${filetype}`, 'utf-8');
             return acc;

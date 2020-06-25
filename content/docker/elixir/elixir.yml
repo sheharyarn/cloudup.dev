@@ -1,12 +1,12 @@
 platform: Elixir
 variations:
 
-  - id: plain
-    name: Plain Elixir
+  - id: basic
+    name: Basic Elixir Apps
     description: Simple & pure Elixir applications without any framework
     files:
-      dockerfile:   plain.dockerfile
-      dockerignore: plain.dockerignore
+      - dockerfile
+      - dockerignore
     variables:
       - name:  'ELIXIR_VERSION'
         value: '1.10.4'
@@ -21,8 +21,8 @@ variations:
     name: Phoenix Web App
     description: Elixir apps built using the Phoenix Framework
     files:
-      dockerfile:   phoenix.dockerfile
-      dockerignore: phoenix.dockerignore
+      - dockerfile
+      - dockerignore
     variables:
       - name:  'ELIXIR_VERSION'
         value: '1.10.4'

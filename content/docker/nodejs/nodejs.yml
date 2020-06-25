@@ -1,12 +1,12 @@
 platform: Node.js
 variations:
 
-  - id: plain
-    name: Node.js
+  - id: basic
+    name: Basic Node.js App
     description: Simple Node.js applications
     files:
-      dockerfile:   plain.dockerfile
-      dockerignore: plain.dockerignore
+      - dockerfile
+      - dockerignore
     variables:
       - name:  'NODE_VERSION'
         value: '14.5.0'
