@@ -14,7 +14,9 @@ const prepareFiles = (files, configVars, userVars) => (
     .keys(files)
     .reduce((preparedFiles, filetype) => {
       preparedFiles[filetype] = configVars.reduce((content, v) => {
-        const value = userVars[v.name] || v.value;
+        const userValue = userVars[v.name];
+        const value = (userValue && userValue !== '') ? userValue : v.value;
+
         return content.replace(`@{${v.name}}`, value);
       }, files[filetype]);
 
@@ -30,6 +32,7 @@ const VariantTemplate = ({ data, location, pageContext }) => {
 
   const [userVars, setVars] = React.useState({});
   const preparedFiles = prepareFiles(files, variant.variables, userVars);
+  const addVar = (name, value) => setVars(uv => ({...uv, [name]: value}));
 
   return (
     <Layout location={location}>
@@ -43,7 +46,7 @@ const VariantTemplate = ({ data, location, pageContext }) => {
       <div className={styles.configBuilder}>
         <div className={styles.files}>
           {variant.files.map(ft => (
-            <div className={styles.file}>
+            <div key={ft} className={styles.file}>
               <span>{_.capitalize(ft)}</span>
               <pre>
                 <code>{preparedFiles[ft]}</code>
@@ -64,7 +67,9 @@ const VariantTemplate = ({ data, location, pageContext }) => {
                   <input
                     type="text"
                     name={v.name}
+                    aria-label={`Variable value for '${v.name}'`}
                     placeholder={v.value}
+                    onChange={e => addVar(v.name, e.target.value)}
                   />
                 </label>
               </div>
