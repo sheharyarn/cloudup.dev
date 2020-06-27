@@ -9,12 +9,12 @@ const DOCKER_CONTENT = graphql`
   {
     docker: allYaml(filter: {fields: {tool: {eq: "docker"}}}) {
       nodes {
-        platform
+        name
         variations {
           id
           name
         }
-        fields { platformSlug }
+        fields { platformId }
       }
     }
   }
@@ -32,7 +32,7 @@ const DockerChooser = () => {
       .nodes
       .map(p => ({
         id: p.fields.platformSlug,
-        name: p.platform,
+        name: p.name,
         variations: p.variations
       }));
 

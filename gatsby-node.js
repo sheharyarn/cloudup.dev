@@ -12,7 +12,7 @@ const ALL_CONTENT = `
           id
           files
         }
-        fields { tool, platformSlug }
+        fields { tool, platformId }
       }
     }
   }
@@ -44,7 +44,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({ node, name: 'tool', value: parent.sourceInstanceName });
 
     // Set platform (e.g. elixir, nodejs)
-    createNodeField({ node, name: 'platformSlug', value: parent.name });
+    createNodeField({ node, name: 'platformId', value: parent.name });
   }
 };
 
@@ -64,32 +64,32 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Loop through all docker nodes and the nested platform variants
   result.data.docker.nodes.forEach(dockerNode => {
-    const platform = dockerNode.fields.platformSlug;
+    const platformId = dockerNode.fields.platformId;
 
     // Create page for platform (e.g. /docker/elixir)
     createPage({
-      path: URLs.docker.platform(platform),
-      context: { platform },
+      path: URLs.docker.platform(platformId),
+      context: { platformId },
       component: TEMPLATES.dockerPlatform,
     });
 
 
     // Create page for each variant (e.g. /docker/elixir/phoenix)
     dockerNode.variations.forEach(variantData => {
-      const variant = variantData.id;
+      const variantId = variantData.id;
 
       // Load file contents from id
       const files =
         variantData
           .files
           .reduce((acc, filetype) => {
-            acc[filetype] = fs.readFileSync(`./content/docker/${platform}/${variant}.${filetype}`, 'utf-8');
+            acc[filetype] = fs.readFileSync(`./content/docker/${platformId}/${variantId}.${filetype}`, 'utf-8');
             return acc;
           }, {});
 
       createPage({
-        path: URLs.docker.variant(platform, variant),
-        context: { platform, variant, files },
+        path: URLs.docker.variant(platformId, variantId),
+        context: { platformId, variantId, files },
         component: TEMPLATES.dockerVariant,
       });
     });

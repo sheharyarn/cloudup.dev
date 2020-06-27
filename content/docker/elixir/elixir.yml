@@ -1,4 +1,4 @@
-platform: Elixir
+name: Elixir
 variations:
 
   - id: basic

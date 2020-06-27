@@ -1,4 +1,4 @@
-platform: Node.js
+name: Node.js
 variations:
 
   - id: basic
