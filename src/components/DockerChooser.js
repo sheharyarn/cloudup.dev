@@ -5,12 +5,15 @@ import URLs from 'src/utils/urls';
 import styles from './DockerChooser.module.sass';
 
 
+/* eslint-disable jsx-a11y/no-onchange */
+
+
 const DOCKER_CONTENT = graphql`
   {
-    docker: allYaml(filter: {fields: {tool: {eq: "docker"}}}) {
+    allPlatforms: allYaml(filter: {fields: {tool: {eq: "docker"}}}) {
       nodes {
         name
-        variations {
+        variants {
           id
           name
         }
@@ -21,37 +24,38 @@ const DOCKER_CONTENT = graphql`
 `;
 
 
-const open = (platform, variant) =>
+const openConfig = (platform, variant) =>
   navigate(URLs.docker.variant(platform, variant));
 
 
 const DockerChooser = () => {
   const platforms =
     useStaticQuery(DOCKER_CONTENT)
-      .docker
+      .allPlatforms
       .nodes
       .map(p => ({
-        id: p.fields.platformSlug,
+        id: p.fields.platformId,
         name: p.name,
-        variations: p.variations
+        variants: p.variants
       }));
 
 
   const [platformId, setPlatform] = React.useState(null);
-  const chosen = platforms.find(p => p.id == platformId);
-  const variations = chosen && chosen.variations || [];
+  const chosen = platforms.find(p => p.id === platformId);
+  const variants = (chosen && chosen.variants) || [];
 
 
   return (
     <form className={styles.container}>
       <div className={styles.group}>
-        <label for="docker-platform">Language / Platform</label>
+        <label htmlFor="docker-platform">Language / Platform</label>
 
         <select
           id="docker-platform"
+          defaultValue=""
           onChange={e => setPlatform(e.target.value)}
         >
-          <option value="" selected disabled>
+          <option value="" disabled>
             Choose Platform
           </option>
 
@@ -64,17 +68,18 @@ const DockerChooser = () => {
       </div>
 
       <div className={styles.group}>
-        <label for="docker-variation">Variation</label>
+        <label htmlFor="docker-variant">Variant</label>
 
         <select
-          id="docker-variation"
-          onChange={e => open(platformId, e.target.value)}
+          id="docker-variant"
+          defaultValue=""
+          onChange={e => openConfig(platformId, e.target.value)}
         >
-          <option value="" selected disabled>
-            Choose Variation
+          <option value="" disabled>
+            Choose Variant
           </option>
 
-          {variations.map(v => (
+          {variants.map(v => (
             <option key={v.id} value={v.id}>
               {v.name}
             </option>

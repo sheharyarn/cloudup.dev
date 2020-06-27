@@ -1,3 +1,4 @@
+import _             from 'lodash';
 import React         from 'react';
 import { graphql }   from 'gatsby';
 
@@ -5,34 +6,98 @@ import Layout        from 'src/components/Layout';
 import SEO           from 'src/components/SEO';
 import DockerChooser from 'src/components/DockerChooser';
 
+import styles        from './VariantTemplate.module.sass';
+
+
+const prepareFiles = (files, configVars, userVars) => (
+  Object
+    .keys(files)
+    .reduce((preparedFiles, filetype) => {
+      preparedFiles[filetype] = configVars.reduce((content, v) => {
+        const value = userVars[v.name] || v.value;
+        return content.replace(`@{${v.name}}`, value);
+      }, files[filetype]);
+
+      return preparedFiles;
+    }, {})
+);
+
 
 const VariantTemplate = ({ data, location, pageContext }) => {
-  const platformName = data.docker.platform;
-  const variation = "";
-  const description = "";
-  const title = `Docker Config Generator`;
+  const { variantId, files } = pageContext;
+  const platform = data.platform;
+  const variant = platform.variants.find(v => v.id === variantId);
+
+  const [userVars, setVars] = React.useState({});
+  const preparedFiles = prepareFiles(files, variant.variables, userVars);
 
   return (
     <Layout location={location}>
-      <SEO title={title} description={description} />
+      <SEO
+        title={`${variant.name} - Docker Config Generator`}
+        description={`Generate optimized and production-ready docker configs for ${variant.name} or other types of ${platform.name} apps`}
+      />
+
+      <Banner platform={platform} variant={variant} />
+
+      <div className={styles.configBuilder}>
+        <div className={styles.files}>
+          {variant.files.map(ft => (
+            <div className={styles.file}>
+              <span>{_.capitalize(ft)}</span>
+              <pre>
+                <code>{preparedFiles[ft]}</code>
+              </pre>
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.configs}>
+          <span>Configure Settings</span>
+
+          <div className={styles.vars}>
+            {variant.variables.map(v => (
+              <div key={v.name} className={styles.group}>
+                <label>
+                  {v.name}
+
+                  <input
+                    type="text"
+                    name={v.name}
+                    placeholder={v.value}
+                  />
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       <DockerChooser />
-
-      <h1>Variant Page!</h1>
-      <pre>{JSON.stringify({data, pageContext}, null, 2)}</pre>
     </Layout>
   )
 };
 
 
+const Banner = ({ platform, variant }) => (
+  <div className={styles.banner}>
+    <h1>Docker Config Generator for {platform.name}</h1>
+    <hr/>
+    <h2>{variant.name}</h2>
+    <p>Get started with Docker for your {platform.name} project with optimized and production-ready configs below</p>
+  </div>
+);
+
+
+
 export const pageQuery = graphql`
   query DockerConfigById($platformId: String!) {
-    docker: yaml(fields: {
+    platform: yaml(fields: {
       tool: { eq: "docker" }
       platformId: { eq: $platformId }
     }) {
       name
-      variations {
+      variants {
         id
         name
         description

@@ -8,7 +8,7 @@ const ALL_CONTENT = `
   {
     docker: allYaml(filter: {fields: {tool: {eq: "docker"}}}) {
       nodes {
-        variations {
+        variants {
           id
           files
         }
@@ -75,7 +75,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
 
     // Create page for each variant (e.g. /docker/elixir/phoenix)
-    dockerNode.variations.forEach(variantData => {
+    dockerNode.variants.forEach(variantData => {
       const variantId = variantData.id;
 
       // Load file contents from id

@@ -45,6 +45,7 @@
   display: flex
   align-items: center
   justify-content: center
+  text-align: center
   flex-direction: $direction
 
 
@@ -55,6 +56,28 @@
   +media-breakpoint-down(small)
     +margin($horz: 2.5rem)
 
+
+@mixin hr($color: $gray-300, $width: 100%)
+  width: $width
+  height: 0
+  border: 0
+  border-top: 1px solid $color
+
+
+@mixin card
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05)
+  background-color: $white
+  border: 1px solid $card-border-color
+  border-radius: $border-radius
+
+
+@mixin card-title
+  +padding($all: 1.2rem)
+  display: block
+  font-size: 1.7rem
+  font-weight: 500
+  color: $cyan
+  border-bottom: 1px solid $card-border-color
 
 
 

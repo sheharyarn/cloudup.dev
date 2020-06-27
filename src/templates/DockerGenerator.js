@@ -1,9 +1,7 @@
-import _ from 'lodash';
 import React from 'react';
-import { Link } from 'gatsby';
 
 import Layout from 'src/components/Layout';
-import styles from './DockerGenerator.module.sass';
+// import styles from './DockerGenerator.module.sass';
 
 
 const DockerGenerator = ({ data, location }) => {

@@ -1,5 +1,3 @@
-import { graphql } from 'gatsby';
-
 // TODO:
 // Replace the following with `export { default } ...`
 // once this issue is resolved: https://github.com/gatsbyjs/gatsby/issues/12384

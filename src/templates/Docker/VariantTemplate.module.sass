@@ -1,0 +1,78 @@
+.banner
+  +flex-center
+  +padding($horz: 5rem)
+  +padding($vert: 8rem)
+
+  h1
+    +margin($all: 0)
+    color: $gray-500
+    font-size: 2rem
+    font-weight: 400
+    letter-spacing: 0.2rem
+    text-transform: uppercase
+
+  hr
+    +hr($width: 10rem)
+    +margin($top: 5rem)
+
+  h2
+    font-size: 4rem
+    font-weight: 400
+
+  p
+    color: $gray-600
+    font-size: 1.8rem
+    max-width: 50rem
+
+
+
+.configBuilder
+  $card-margin: 4rem
+  +margin($horz: 5rem)
+  display: flex
+
+  +media-breakpoint-down(medium)
+    flex-direction: column-reverse
+
+  .files
+    flex-grow: 1
+
+    +media-breakpoint-up(large)
+      +margin($right: $card-margin)
+
+    .file
+      +margin($bottom: $card-margin)
+      +card
+
+      span
+        +card-title
+
+
+  .configs
+    +card
+    +margin($bottom: $card-margin)
+
+    +media-breakpoint-up(large)
+      min-width: 35rem
+      align-self: start
+
+    +media-breakpoint-down(medium)
+      align-self: center
+
+    span
+      +card-title
+
+    .vars
+      +padding($all: 2rem)
+
+    .group
+      &:not(:first-child)
+        +margin($top: 2rem)
+
+      label
+        font-size: 1.2rem
+        font-family: $font-code
+
+      input
+        +margin($top: 1rem)
+        display: block

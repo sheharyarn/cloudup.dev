@@ -1,5 +1,5 @@
 name: Elixir
-variations:
+variants:
 
   - id: basic
     name: Basic Elixir Apps
@@ -18,7 +18,7 @@ variations:
         value: '3000'
 
   - id: phoenix
-    name: Phoenix Web App
+    name: Phoenix Web Apps
     description: Elixir apps built using the Phoenix Framework
     files:
       - dockerfile

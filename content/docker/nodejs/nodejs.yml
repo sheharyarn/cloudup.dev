@@ -1,8 +1,8 @@
 name: Node.js
-variations:
+variants:
 
   - id: basic
-    name: Basic Node.js App
+    name: Basic Node.js Apps
     description: Simple Node.js applications
     files:
       - dockerfile
