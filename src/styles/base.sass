@@ -113,7 +113,7 @@ pre[class*=#{$code-prefix}]
 
 
 pre[class*=#{$code-prefix}]
-  +margin($vert: 2rem)
+  +margin($vert: 0)
 
 
 code[class*=#{$code-prefix}]
@@ -131,31 +131,3 @@ code[class*=#{$code-prefix}]
     color: #7c4dff
 
 
-
-
-// Post-specific
-// -------------
-
-
-article#post
-  .footnotes li
-    +margin($bottom: 1rem)
-    color: $gray-600
-    font-size: 1.5rem
-
-    +media-breakpoint-down(small)
-      font-size: 1.3rem
-
-    p
-      display: inline
-      font-size: inherit
-
-    code
-      font-size: 1.3rem
-
-      +media-breakpoint-down(small)
-        font-size: 1.1rem
-
-    .footnote-backref
-      font-weight: 800
-      text-decoration: none

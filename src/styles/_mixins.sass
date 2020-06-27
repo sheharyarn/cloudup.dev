@@ -41,12 +41,14 @@
 // -------
 
 
-@mixin flex-center($direction: column)
+@mixin flex-center($direction: column, $text: true)
   display: flex
   align-items: center
   justify-content: center
-  text-align: center
   flex-direction: $direction
+
+  @if $text
+    text-align: center
 
 
 @mixin container($width)

@@ -2,9 +2,10 @@ import _             from 'lodash';
 import React         from 'react';
 import { graphql }   from 'gatsby';
 
+import CodeBlock     from 'src/components/CodeBlock';
+import DockerChooser from 'src/components/DockerChooser';
 import Layout        from 'src/components/Layout';
 import SEO           from 'src/components/SEO';
-import DockerChooser from 'src/components/DockerChooser';
 
 import styles        from './VariantTemplate.module.sass';
 
@@ -44,19 +45,10 @@ const VariantTemplate = ({ data, location, pageContext }) => {
       <Banner platform={platform} variant={variant} />
 
       <div className={styles.configBuilder}>
-        <div className={styles.files}>
-          {variant.files.map(ft => (
-            <div key={ft} className={styles.file}>
-              <span>{_.capitalize(ft)}</span>
-              <pre>
-                <code>{preparedFiles[ft]}</code>
-              </pre>
-            </div>
-          ))}
-        </div>
-
         <div className={styles.configs}>
-          <span>Configure Settings</span>
+          <span className={styles.cardTitle}>
+            Configure Settings
+          </span>
 
           <div className={styles.vars}>
             {variant.variables.map(v => (
@@ -75,6 +67,15 @@ const VariantTemplate = ({ data, location, pageContext }) => {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className={styles.files}>
+          {variant.files.map(ft => (
+            <div key={ft} className={`${styles.file}`}>
+              <span className={styles.cardTitle}>{_.capitalize(ft)}</span>
+              <CodeBlock language={ft} code={preparedFiles[ft]} />
+            </div>
+          ))}
         </div>
       </div>
 

@@ -28,14 +28,22 @@
 
 .configBuilder
   $card-margin: 4rem
-  +margin($horz: 5rem)
-  display: flex
+  +margin($horz: 2rem)
 
-  +media-breakpoint-down(medium)
-    flex-direction: column-reverse
+  +media-breakpoint-up(small)
+    +margin($horz: 5rem)
+
+  +media-breakpoint-up(large)
+    +margin($horz: 10rem)
+    +flex-center($direction: row-reverse, $text: false)
+    min-width: 0
+
+  +media-breakpoint-up(xlarge)
+    +margin($horz: 15rem)
 
   .files
     flex-grow: 1
+    min-width: 0
 
     +media-breakpoint-up(large)
       +margin($right: $card-margin)
@@ -44,7 +52,7 @@
       +margin($bottom: $card-margin)
       +card
 
-      span
+      .cardTitle
         +card-title
 
 
@@ -59,7 +67,7 @@
     +media-breakpoint-down(medium)
       align-self: center
 
-    span
+    .cardTitle
       +card-title
 
     .vars
