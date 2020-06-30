@@ -1,11 +1,10 @@
-import React from 'react';
+import React     from 'react';
+import PropTypes from 'prop-types';
 import { navigate, graphql, useStaticQuery } from 'gatsby';
 
-import URLs from 'src/utils/urls';
+import URLs   from 'src/utils/urls';
 import styles from './DockerChooser.module.sass';
 
-
-/* eslint-disable jsx-a11y/no-onchange */
 
 
 const DOCKER_CONTENT = graphql`
@@ -24,11 +23,8 @@ const DOCKER_CONTENT = graphql`
 `;
 
 
-const openConfig = (platform, variant) =>
-  navigate(URLs.docker.variant(platform, variant));
 
-
-const DockerChooser = () => {
+const DockerChooser = (props) => {
   const platforms =
     useStaticQuery(DOCKER_CONTENT)
       .allPlatforms
@@ -40,9 +36,25 @@ const DockerChooser = () => {
       }));
 
 
-  const [platformId, setPlatform] = React.useState(null);
-  const chosen = platforms.find(p => p.id === platformId);
-  const variants = (chosen && chosen.variants) || [];
+  const [platformId, setPlatform] = React.useState(props.platformId);
+  const [variantId, setVariant] = React.useState(props.variantId);
+
+
+  // Find the available variants for the platform object whenever a
+  // platform is selected
+  const availableVariants = React.useMemo(() => {
+    const chosen = platforms.find(p => p.id === platformId);
+    return (chosen && chosen.variants) || [];
+  }, [platforms, platformId]);
+
+
+  // Navigate to the appropriate page when variant is selected
+  React.useEffect(() => {
+    if (variantId && variantId !== '')
+      navigate(URLs.docker.variant(platformId, variantId));
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [variantId]);
 
 
   return (
@@ -50,10 +62,14 @@ const DockerChooser = () => {
       <div className={styles.group}>
         <label htmlFor="docker-platform">Language / Platform</label>
 
+        {/* eslint-disable-next-line jsx-a11y/no-onchange */}
         <select
           id="docker-platform"
-          defaultValue=""
-          onChange={e => setPlatform(e.target.value)}
+          value={platformId}
+          onChange={e => {
+            setPlatform(e.target.value);
+            setVariant('');
+          }}
         >
           <option value="" disabled>
             Choose Platform
@@ -70,16 +86,17 @@ const DockerChooser = () => {
       <div className={styles.group}>
         <label htmlFor="docker-variant">Variant</label>
 
+        {/* eslint-disable-next-line jsx-a11y/no-onchange */}
         <select
           id="docker-variant"
-          defaultValue=""
-          onChange={e => openConfig(platformId, e.target.value)}
+          value={variantId}
+          onChange={e => setVariant(e.target.value)}
         >
           <option value="" disabled>
             Choose Variant
           </option>
 
-          {variants.map(v => (
+          {availableVariants.map(v => (
             <option key={v.id} value={v.id}>
               {v.name}
             </option>
@@ -88,6 +105,18 @@ const DockerChooser = () => {
       </div>
     </form>
   );
+};
+
+
+DockerChooser.propTypes = {
+  platformId: PropTypes.string.isRequired,
+  variantId:  PropTypes.string.isRequired,
+};
+
+
+DockerChooser.defaultProps = {
+  platformId: '',
+  variantId: '',
 };
 
 

@@ -17,8 +17,9 @@ const prepareFiles = (files, configVars, userVars) => (
       preparedFiles[filetype] = configVars.reduce((content, v) => {
         const userValue = userVars[v.name];
         const value = (userValue && userValue !== '') ? userValue : v.value;
+        const regex = new RegExp(`@{${v.name}}`, 'g');
 
-        return content.replace(`@{${v.name}}`, value);
+        return content.replace(regex, value);
       }, files[filetype]);
 
       return preparedFiles;
@@ -27,7 +28,7 @@ const prepareFiles = (files, configVars, userVars) => (
 
 
 const VariantTemplate = ({ data, location, pageContext }) => {
-  const { variantId, files } = pageContext;
+  const { platformId, variantId, files } = pageContext;
   const platform = data.platform;
   const variant = platform.variants.find(v => v.id === variantId);
 
@@ -79,7 +80,10 @@ const VariantTemplate = ({ data, location, pageContext }) => {
         </div>
       </div>
 
-      <DockerChooser />
+      <DockerChooser
+        platformId={platformId}
+        variantId={variantId}
+      />
     </Layout>
   )
 };
