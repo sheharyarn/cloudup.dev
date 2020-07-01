@@ -1,14 +1,38 @@
 .container
-  width: 100rem
+  +flex-center($direction: column)
+  +margin($horz: 5rem)
+  +margin($top: 5rem)
+  +padding($all: 3rem)
 
-  .group
-    display: inline-block
+  max-width: 65rem
 
-    label
-      font-size: 1.2rem
-      font-weight: 500
+  +media-breakpoint-up(medium)
+    +margin($horz: auto)
 
-    select
-      +input-select
-      font-size: 2rem
-      line-height: 2rem
+  .title
+    +margin($all: 0)
+    color: $gray-500
+    text-align: center
+    font-size: 2rem
+    font-weight: 400
+    letter-spacing: 0.2rem
+    // text-transform: uppercase
+
+
+  .row
+    +flex-center($direction: row)
+    +margin($top: 4rem)
+
+    .group
+      display: inline-block
+
+      label
+        +control-label
+
+      select
+        +input-select
+        font-size: 2rem
+        line-height: 2rem
+
+      &:first-child
+        +margin($right: 5rem)

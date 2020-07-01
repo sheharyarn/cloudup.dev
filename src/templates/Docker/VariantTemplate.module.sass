@@ -1,5 +1,5 @@
 .banner
-  +flex-center
+  +flex-center($direction: column, $text: true)
   +padding($horz: 5rem)
   +padding($vert: 8rem)
 
@@ -35,7 +35,7 @@
 
   +media-breakpoint-up(large)
     +margin($horz: 10rem)
-    +flex-center($direction: row-reverse, $text: false)
+    +flex-center($direction: row-reverse)
     min-width: 0
 
   +media-breakpoint-up(xlarge)
@@ -78,9 +78,10 @@
         +margin($top: 2rem)
 
       label
+        +control-label
         font-family: $font-code
-        font-size: 1.2rem
-        font-weight: 500
+        color: $gray-700
+
 
       input
         +input-text

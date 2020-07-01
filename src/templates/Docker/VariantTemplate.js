@@ -43,7 +43,13 @@ const VariantTemplate = ({ data, location, pageContext }) => {
         description={`Generate optimized and production-ready docker configs for ${variant.name} or other types of ${platform.name} apps`}
       />
 
+      <DockerChooser
+        platformId={platformId}
+        variantId={variantId}
+      />
+
       <Banner platform={platform} variant={variant} />
+
 
       <div className={styles.configBuilder}>
         <div className={styles.configs}>
@@ -79,11 +85,6 @@ const VariantTemplate = ({ data, location, pageContext }) => {
           ))}
         </div>
       </div>
-
-      <DockerChooser
-        platformId={platformId}
-        variantId={variantId}
-      />
     </Layout>
   )
 };

@@ -58,52 +58,58 @@ const DockerChooser = (props) => {
 
 
   return (
-    <form className={styles.container}>
-      <div className={styles.group}>
-        <label htmlFor="docker-platform">Language / Platform</label>
+    <div className={styles.container}>
+      <h3 className={styles.title}>
+        Generate a Docker Image for your Project
+      </h3>
 
-        {/* eslint-disable-next-line jsx-a11y/no-onchange */}
-        <select
-          id="docker-platform"
-          value={platformId}
-          onChange={e => {
-            setPlatform(e.target.value);
-            setVariant('');
-          }}
-        >
-          <option value="" disabled>
-            Choose Platform
-          </option>
+      <form className={styles.row}>
+        <div className={styles.group}>
+          <label htmlFor="docker-platform">Language / Platform</label>
 
-          {platforms.map(p => (
-            <option key={p.id} value={p.id}>
-              {p.name}
+          {/* eslint-disable-next-line jsx-a11y/no-onchange */}
+          <select
+            id="docker-platform"
+            value={platformId}
+            onChange={e => {
+              setPlatform(e.target.value);
+              setVariant('');
+            }}
+          >
+            <option value="" disabled>
+              Choose Platform
             </option>
-          ))}
-        </select>
-      </div>
 
-      <div className={styles.group}>
-        <label htmlFor="docker-variant">Variant</label>
+            {platforms.map(p => (
+              <option key={p.id} value={p.id}>
+                {p.name}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        {/* eslint-disable-next-line jsx-a11y/no-onchange */}
-        <select
-          id="docker-variant"
-          value={variantId}
-          onChange={e => setVariant(e.target.value)}
-        >
-          <option value="" disabled>
-            Choose Variant
-          </option>
+        <div className={styles.group}>
+          <label htmlFor="docker-variant">Variant</label>
 
-          {availableVariants.map(v => (
-            <option key={v.id} value={v.id}>
-              {v.name}
+          {/* eslint-disable-next-line jsx-a11y/no-onchange */}
+          <select
+            id="docker-variant"
+            value={variantId}
+            onChange={e => setVariant(e.target.value)}
+          >
+            <option value="" disabled>
+              Choose Variant
             </option>
-          ))}
-        </select>
-      </div>
-    </form>
+
+            {availableVariants.map(v => (
+              <option key={v.id} value={v.id}>
+                {v.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </form>
+    </div>
   );
 };
 
