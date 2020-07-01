@@ -1,10 +1,14 @@
 .container
-  +flex-center($direction: column, $text: true)
-  +padding($horz: 5rem)
-  +padding($top: 8rem, $bottom: 5rem)
-
   width: 100%
   background: linear-gradient(135deg, $teal 0%, $cyan 100%)
+
+  a
+    text-decoration: none
+
+.home
+  +flex-center($direction: column, $text: true)
+  +padding($top: 8rem, $bottom: 5rem)
+  +padding($horz: 5rem)
 
   .title
     +margin($all: 0)
@@ -14,3 +18,38 @@
   .tagline
     color: $white
     font-size: 2.2rem
+
+
+.withContent
+  +padding($top: 3.5rem, $bottom: 3rem)
+  +padding($horz: 3rem)
+
+  .title
+    +margin($all: 0)
+    color: $white
+    display: inline-block
+
+    &::before
+      $arrow-size: 3rem
+      +margin($top: -0.5rem, $right: 2rem)
+
+      content: ' '
+      display: inline-block
+      height: $arrow-size
+      width: $arrow-size
+      vertical-align: middle
+      background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\"><path fill=\"white\" d=\"M427 234.625H167.296l119.702-119.702L256 85 85 256l171 171 29.922-29.924-118.626-119.7H427v-42.75z\"/></svg>")
+      background-position: 50% 50%
+      background-size: $arrow-size $arrow-size
+      background-repeat: no-repeat
+      transition: all .1s cubic-bezier(.4,0,1,1) 0s;
+
+    &:hover::before
+      +margin($right: 3rem)
+
+    +media-breakpoint-down(small)
+      text-align: center
+      display: block
+
+      &::before
+        display: none

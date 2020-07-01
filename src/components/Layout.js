@@ -1,13 +1,19 @@
 import React from 'react';
-import Header from 'src/components/Header';
+import Header, { HeaderWithContent } from 'src/components/Header';
+import URLs from 'src/utils/urls';
 
 import 'src/styles/base.sass'
 
 
-const Layout = ({ location, children }) => {
+const Layout = ({ location, title, headerContent, children }) => {
+  const header =
+    (location.pathname === URLs.root())
+      ? <Header />
+      : <HeaderWithContent title={title} content={headerContent} />
+
   return (
     <>
-      <Header />
+      {header}
       {children}
       <footer></footer>
     </>
