@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
+import { TwitterFollowButton } from 'react-twitter-embed';
 import styles from './Header.module.sass';
 
 
@@ -9,6 +10,10 @@ const SITE_QUERY = graphql`
       siteMetadata {
         title
         description
+        vendor {
+          twitter { user }
+          github { user, repo }
+        }
       }
     }
   }
@@ -19,6 +24,9 @@ const Header = () => {
   const data = useStaticQuery(SITE_QUERY);
   const site = data.site.siteMetadata;
 
+  const { twitter, github } = site.vendor;
+  const starButtonSource = `https://ghbtns.com/github-btn.html?user=${github.user}&repo=${github.repo}&type=star&count=true`
+
   return (
     <header className={`${styles.container} ${styles.home}`}>
       <h3 className={styles.siteTitle}>
@@ -28,6 +36,24 @@ const Header = () => {
       </h3>
 
       <p className={styles.tagline}>{site.description}</p>
+
+      <div className={styles.meta}>
+        <div className={styles.twitter}>
+          <TwitterFollowButton
+            screenName={twitter.user}
+            options={{showScreenName: false}}
+          />
+        </div>
+
+        <iframe
+          src={starButtonSource}
+          frameBorder="0"
+          scrolling="0"
+          width="100"
+          height="20"
+          title="GitHub">
+        </iframe>
+      </div>
     </header>
   );
 };

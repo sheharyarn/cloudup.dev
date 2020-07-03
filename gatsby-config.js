@@ -9,7 +9,16 @@ module.exports = {
     siteUrl: `https://shyr.io/`,
     social: {
       twitter: `https://twitter.com/sheharyarn`,
-      github: `https://github.com/sheharyarn/`,
+      github: `https://github.com/sheharyarn/cloudup.dev`,
+    },
+    vendor: {
+      twitter: {
+        user: 'sheharyarn',
+      },
+      github: {
+        user: 'sheharyarn',
+        repo: 'cloudup.dev',
+      },
     },
   },
   plugins: [
