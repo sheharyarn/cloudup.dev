@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <header className={`${styles.container} ${styles.home}`}>
-      <h3 className={styles.title}>
+      <h3 className={styles.siteTitle}>
         <Link to={`/`} className={styles.heading}>
           {site.title}
         </Link>
@@ -39,11 +39,19 @@ export const HeaderWithContent = ({ title, content }) => {
 
   return (
     <header className={`${styles.container} ${styles.withContent}`}>
-        <Link to={`/`} className={styles.heading}>
-      <h3 className={styles.title}>
+      <Link to={`/`}>
+        <h3 className={styles.siteTitle}>
           {site.title}
-      </h3>
-        </Link>
+        </h3>
+      </Link>
+
+      <h2 className={styles.title}>
+        {title}
+      </h2>
+
+      <section className={styles.contentContainer}>
+        {content}
+      </section>
     </header>
   );
 };

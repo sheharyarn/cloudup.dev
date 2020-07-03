@@ -37,16 +37,21 @@ const VariantTemplate = ({ data, location, pageContext }) => {
   const addVar = (name, value) => setVars(uv => ({...uv, [name]: value}));
 
   return (
-    <Layout location={location}>
+    <Layout
+      location={location}
+      title={`Dockerfile Generator`}
+      headerContent={
+        <DockerChooser
+          platformId={platformId}
+          variantId={variantId}
+          inverse={true}
+        />
+      }>
       <SEO
-        title={`${variant.name} - Docker Config Generator`}
+        title={`${variant.name} - Dockerfile Generator`}
         description={`Generate optimized and production-ready docker configs for ${variant.name} or other types of ${platform.name} apps`}
       />
 
-      <DockerChooser
-        platformId={platformId}
-        variantId={variantId}
-      />
 
       <Banner platform={platform} variant={variant} />
 
@@ -92,9 +97,9 @@ const VariantTemplate = ({ data, location, pageContext }) => {
 
 const Banner = ({ platform, variant }) => (
   <div className={styles.banner}>
-    <h1>Docker Config Generator for {platform.name}</h1>
+    <h1>{variant.name}</h1>
+    {/*<h2>{platform.name}</h2>*/}
     <hr/>
-    <h2>{variant.name}</h2>
     <p>Get started with Docker for your {platform.name} project with optimized and production-ready configs below</p>
   </div>
 );

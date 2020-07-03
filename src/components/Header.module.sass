@@ -2,15 +2,12 @@
   width: 100%
   background: linear-gradient(135deg, $teal 0%, $cyan 100%)
 
-  a
-    text-decoration: none
-
 .home
   +flex-center($direction: column, $text: true)
   +padding($top: 8rem, $bottom: 5rem)
   +padding($horz: 5rem)
 
-  .title
+  .siteTitle
     +margin($all: 0)
     font-size: 8rem
     color: $white
@@ -24,7 +21,7 @@
   +padding($top: 3.5rem, $bottom: 3rem)
   +padding($horz: 3rem)
 
-  .title
+  .siteTitle
     +margin($all: 0)
     color: $white
     display: inline-block
@@ -53,3 +50,7 @@
 
       &::before
         display: none
+
+  .title
+    text-align: center
+    font-size: 4rem
