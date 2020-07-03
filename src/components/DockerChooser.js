@@ -56,13 +56,10 @@ const DockerChooser = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [variantId]);
 
+  const klass = props.inverse ? styles.inverse : '';
 
   return (
-    <div className={styles.container}>
-      <h3 className={styles.title}>
-        Generate a Docker Image for your Project
-      </h3>
-
+    <div className={`${styles.container} ${klass}`}>
       <form className={styles.row}>
         <div className={styles.group}>
           <label htmlFor="docker-platform">Language / Platform</label>

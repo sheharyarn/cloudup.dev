@@ -1,27 +1,17 @@
 .container
   +flex-center($direction: column)
-  +margin($horz: 5rem)
-  +margin($top: 5rem)
-  +padding($all: 3rem)
 
   max-width: 65rem
 
   +media-breakpoint-up(medium)
     +margin($horz: auto)
 
-  .title
-    +margin($all: 0)
-    color: $gray-500
-    text-align: center
-    font-size: 2rem
-    font-weight: 400
-    letter-spacing: 0.2rem
-    // text-transform: uppercase
-
-
   .row
     +flex-center($direction: row)
     +margin($top: 4rem)
+
+    +media-breakpoint-down(small)
+      flex-direction: column
 
     .group
       display: inline-block
@@ -31,8 +21,16 @@
 
       select
         +input-select
+        +margin($bottom: 2rem)
         font-size: 2rem
         line-height: 2rem
 
-      &:first-child
-        +margin($right: 5rem)
+      +media-breakpoint-up(medium)
+        &:first-child
+          +margin($right: 5rem)
+
+
+  // Inverse Overrides
+  &.inverse
+    .group label
+      color: $white
