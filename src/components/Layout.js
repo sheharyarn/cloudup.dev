@@ -1,5 +1,6 @@
 import React from 'react';
 import Header, { HeaderWithContent } from 'src/components/Header';
+import Footer from 'src/components/Footer';
 import URLs from 'src/utils/urls';
 
 import 'src/styles/base.sass'
@@ -12,11 +13,14 @@ const Layout = ({ location, title, headerContent, children }) => {
       : <HeaderWithContent title={title} content={headerContent} />
 
   return (
-    <>
-      {header}
-      {children}
-      <footer></footer>
-    </>
+    <div id="page">
+      <div id="content">
+        {header}
+        {children}
+      </div>
+
+      <Footer />
+    </div>
   );
 };
 

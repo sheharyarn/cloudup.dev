@@ -10,7 +10,7 @@ const SITE_QUERY = graphql`
       siteMetadata {
         title
         description
-        vendor {
+        social {
           twitter { user }
           github { user, repo }
         }
@@ -24,7 +24,7 @@ const Header = () => {
   const data = useStaticQuery(SITE_QUERY);
   const site = data.site.siteMetadata;
 
-  const { twitter, github } = site.vendor;
+  const { twitter, github } = site.social;
   const starButtonSource = `https://ghbtns.com/github-btn.html?user=${github.user}&repo=${github.repo}&type=star&count=true`
 
   return (

@@ -10,7 +10,9 @@ const SITE_QUERY = graphql`
       siteMetadata {
         title
         description
-        social { twitter }
+        social {
+          twitter { user }
+        }
       }
     }
   }
@@ -52,7 +54,7 @@ const SEO = ({ description, meta, title, homepage }) => {
         },
         {
           name: `twitter:creator`,
-          content: siteMetadata.social.twitter,
+          content: `@${siteMetadata.social.twitter.user}`,
         },
         {
           name: `twitter:title`,

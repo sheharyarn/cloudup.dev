@@ -8,10 +8,6 @@ module.exports = {
     description: `Free tools to jump start your development on the cloud`,
     siteUrl: `https://shyr.io/`,
     social: {
-      twitter: `https://twitter.com/sheharyarn`,
-      github: `https://github.com/sheharyarn/cloudup.dev`,
-    },
-    vendor: {
       twitter: {
         user: 'sheharyarn',
       },

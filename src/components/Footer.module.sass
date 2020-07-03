@@ -1,0 +1,23 @@
+.footer
+  +margin($top: 7rem)
+  +padding($all: 5rem)
+
+  text-align: center
+  font-size: 1.5rem
+  background-color: $white
+  border-top: 1px solid $gray-200
+
+
+  .separator
+    +margin($horz: 1rem)
+    color: $gray-500
+
+    +media-breakpoint-down(small)
+      display: block
+      height: 1rem
+      color: $white
+
+
+  +media-breakpoint-down(small)
+    +padding($vert: 3rem)
+
