@@ -4,19 +4,16 @@
 
   text-align: center
   font-size: 1.5rem
+  line-height: 3rem;
   background-color: $white
   border-top: 1px solid $gray-200
 
+  .text
+    display: inline-block
 
   .separator
     +margin($horz: 1rem)
     color: $gray-500
-
-    +media-breakpoint-down(small)
-      display: block
-      height: 1rem
-      color: $white
-
 
   +media-breakpoint-down(small)
     +padding($vert: 3rem)

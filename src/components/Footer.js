@@ -14,6 +14,7 @@ const SITE_QUERY = graphql`
         description
         social {
           twitter { user }
+          github { user, repo }
         }
       }
     }
@@ -23,22 +24,29 @@ const SITE_QUERY = graphql`
 
 const Footer = () => {
   const data = useStaticQuery(SITE_QUERY);
-  const site = data.site.siteMetadata;
-  const username = site.social.twitter.user;
+  const social = data.site.siteMetadata.social;
+
+  const twitterUser = social.twitter.user;
+  const twitterUrl  = URLs.twitter.profile(twitterUser);
+  const githubUrl   = URLs.github.repo(social.github.user, social.github.repo);
 
   return (
     <footer id="footer" className={styles.footer}>
-      Created by{' '}
-      <ExternalLink url={URLs.twitter.profile(username)}>
-        @{username}
-      </ExternalLink>
+      <span className={styles.text}>
+        Created by <ExternalLink url={twitterUrl}>@{twitterUser}</ExternalLink>
+      </span>
 
       <span className={styles.separator}> • </span>
 
-      Learn more about cloud applications at{' '}
-      <ExternalLink url="https://shyr.io/">
-        shyr.io
-      </ExternalLink>
+      <span className={styles.text}>
+        Contribute on <ExternalLink url={githubUrl}>GitHub</ExternalLink>
+      </span>
+
+      <span className={styles.separator}> • </span>
+
+      <span className={styles.text}>
+        Learn more at <ExternalLink url="https://shyr.io/">shyr.io</ExternalLink>
+      </span>
     </footer>
   );
 };

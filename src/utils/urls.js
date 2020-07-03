@@ -15,5 +15,9 @@ module.exports = {
     profile:  (username)          => `https://twitter.com/${username}`,
   },
 
+  github: {
+    repo:     (user, repo)        => `https://github.com/${user}/${repo}`,
+  },
+
 };
 
