@@ -21,10 +21,10 @@ const SITE_QUERY = graphql`
 
 const SEO = ({ description, meta, title, homepage }) => {
   const data = useStaticQuery(SITE_QUERY);
-  const siteMetadata = data.site.siteMetadata;
+  const site = data.site.siteMetadata;
 
-  const titleTemplate = homepage ? siteMetadata.title : `%s | ${siteMetadata.title}`;
-  const metaDescription = description || siteMetadata.description;
+  const titleTemplate = homepage ? `${site.title} - ${site.description}` : `%s | ${site.title}`;
+  const metaDescription = description || site.description;
 
   return (
     <Helmet
@@ -54,7 +54,7 @@ const SEO = ({ description, meta, title, homepage }) => {
         },
         {
           name: `twitter:creator`,
-          content: `@${siteMetadata.social.twitter.user}`,
+          content: `@${site.social.twitter.user}`,
         },
         {
           name: `twitter:title`,
