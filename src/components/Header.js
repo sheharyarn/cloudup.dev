@@ -4,7 +4,7 @@ import { TwitterFollowButton } from 'react-twitter-embed';
 import styles from './Header.module.sass';
 
 
-const DATA = useStaticQuery(graphql`
+const SITE_QUERY = graphql`
   query {
     site {
       siteMetadata {
@@ -17,11 +17,16 @@ const DATA = useStaticQuery(graphql`
       }
     }
   }
-`);
+`;
+
+// Custom hook to wrap `useStaticQuery` to avoid the
+// single static query limitation:
+// https://github.com/gatsbyjs/gatsby/issues/16408
+const useData = () => useStaticQuery(SITE_QUERY);
 
 
 const Header = () => {
-  const site = DATA.site.siteMetadata;
+  const site = useData().site.siteMetadata;
 
   const { twitter, github } = site.social;
   const starButtonSource = `https://ghbtns.com/github-btn.html?user=${github.user}&repo=${github.repo}&type=star&count=true`
@@ -59,7 +64,7 @@ const Header = () => {
 
 
 export const HeaderWithContent = ({ title, content }) => {
-  const site = DATA.site.siteMetadata;
+  const site = useData().site.siteMetadata;
 
   return (
     <header className={`${styles.container} ${styles.withContent}`}>
