@@ -5,7 +5,7 @@ module.exports = {
       name: `Sheharyar Naseer`,
       website: `https://shyr.io/`,
     },
-    description: `Free tools to jump start your development on the cloud`,
+    description: `Tools to jump start your development on the cloud`,
     siteUrl: `https://shyr.io/`,
     social: {
       twitter: {
