@@ -29,6 +29,19 @@ const prepareFiles = (files, configVars, userVars) => (
 );
 
 
+const CopyButton = ({ code }) => {
+  const onClick = () => {
+    navigator.clipboard.writeText(code);
+  };
+
+  return (
+    <button className={styles.copyButton} onClick={onClick}>
+      Copy
+    </button>
+  );
+};
+
+
 const VariantTemplate = ({ data, location, pageContext }) => {
   const { platformId, variantId, files } = pageContext;
   const platform = data.platform;
@@ -90,6 +103,7 @@ const VariantTemplate = ({ data, location, pageContext }) => {
               <span className={styles.cardTitle}>
                 <Icon className={styles.icon} type={ft} />
                 {_.capitalize(ft)}
+                <CopyButton code={preparedFiles[ft]} />
               </span>
 
               <CodeBlock language={ft} code={preparedFiles[ft]} />
