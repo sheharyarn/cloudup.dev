@@ -1,13 +1,15 @@
-import _             from 'lodash';
-import React         from 'react';
-import { graphql }   from 'gatsby';
+import _                  from 'lodash';
+import React              from 'react';
+import { graphql }        from 'gatsby';
 
 import CodeBlock     from 'src/components/CodeBlock';
 import DockerChooser from 'src/components/DockerChooser';
+import Icon          from 'src/components/Icon';
 import Layout        from 'src/components/Layout';
 import SEO           from 'src/components/SEO';
 
 import styles        from './VariantTemplate.module.sass';
+
 
 
 const prepareFiles = (files, configVars, userVars) => (
@@ -59,6 +61,7 @@ const VariantTemplate = ({ data, location, pageContext }) => {
       <div className={styles.configBuilder}>
         <div className={styles.configs}>
           <span className={styles.cardTitle}>
+            <Icon className={styles.icon} type="settings" />
             Configure Settings
           </span>
 
@@ -84,7 +87,11 @@ const VariantTemplate = ({ data, location, pageContext }) => {
         <div className={styles.files}>
           {variant.files.map(ft => (
             <div key={ft} className={`${styles.file}`}>
-              <span className={styles.cardTitle}>{_.capitalize(ft)}</span>
+              <span className={styles.cardTitle}>
+                <Icon className={styles.icon} type={ft} />
+                {_.capitalize(ft)}
+              </span>
+
               <CodeBlock language={ft} code={preparedFiles[ft]} />
             </div>
           ))}

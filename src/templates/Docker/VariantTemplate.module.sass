@@ -43,6 +43,14 @@
   +media-breakpoint-up(xlarge)
     +margin($horz: 15rem)
 
+
+  .cardTitle
+    +card-title
+
+    .icon
+      +margin($left: 0.5rem, $right: 1rem)
+
+
   .files
     flex-grow: 1
     min-width: 0
@@ -53,9 +61,6 @@
     .file
       +margin($bottom: $card-margin)
       +card
-
-      .cardTitle
-        +card-title
 
 
   .configs
@@ -68,9 +73,6 @@
 
     +media-breakpoint-down(medium)
       align-self: center
-
-    .cardTitle
-      +card-title
 
     .vars
       +padding($all: 2rem)
