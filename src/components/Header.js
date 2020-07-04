@@ -4,7 +4,7 @@ import { TwitterFollowButton } from 'react-twitter-embed';
 import styles from './Header.module.sass';
 
 
-const SITE_QUERY = graphql`
+const DATA = useStaticQuery(graphql`
   query {
     site {
       siteMetadata {
@@ -17,12 +17,11 @@ const SITE_QUERY = graphql`
       }
     }
   }
-`;
+`);
 
 
 const Header = () => {
-  const data = useStaticQuery(SITE_QUERY);
-  const site = data.site.siteMetadata;
+  const site = DATA.site.siteMetadata;
 
   const { twitter, github } = site.social;
   const starButtonSource = `https://ghbtns.com/github-btn.html?user=${github.user}&repo=${github.repo}&type=star&count=true`
@@ -60,8 +59,7 @@ const Header = () => {
 
 
 export const HeaderWithContent = ({ title, content }) => {
-  const data = useStaticQuery(SITE_QUERY);
-  const site = data.site.siteMetadata;
+  const site = DATA.site.siteMetadata;
 
   return (
     <header className={`${styles.container} ${styles.withContent}`}>
