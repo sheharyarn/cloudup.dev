@@ -19,6 +19,18 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `CloudUp`,
+        short_name: `CloudUp`,
+        icon: 'static/icon.png',
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#1adba2`,
+        display: `standalone`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-yaml`,
       options: {
         typeName: 'Yaml',
