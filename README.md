@@ -5,9 +5,11 @@
   </a>
 </h1>
 
-<p align="center">
-[![Follow on Twitter][shield-twitter]][social-twitter] [![Follow on Github][shield-github]][social-github] [![Visit CloudUp][shield-site]][cloudup]
-</p>
+<h4 align="center">
+
+  [![Follow on Twitter][shield-twitter]][social-twitter] [![Follow on Github][shield-github]][social-github] [![Visit CloudUp][shield-site]][cloudup]
+
+</h4>
 
 <p align="center">
   <b>Tools to jump-start development on the cloud!</b><br/>
@@ -72,7 +74,7 @@ This source code is available as open source under the terms of the [MIT License
 
   [shield-twitter]:       https://img.shields.io/twitter/follow/sheharyarn?color=%231adba2&label=Follow%20on%20Twitter&style=flat-square
   [shield-github]:        https://img.shields.io/github/followers/sheharyarn?color=%231adba2&label=Follow%20on%20Github&style=flat-square
-  [shield-site]:          https://img.shields.io/badge/-CloudUp.dev%20%E2%86%92-green?&style=flat-square&color=1adba2
+  [shield-site]:          https://img.shields.io/badge/Visit-CloudUp.dev%20%E2%86%92-green?&style=flat-square&color=1adba2
 
   [social-twitter]:       https://twitter.com/sheharyarn
   [social-github]:        https://github.com/sheharyarn
