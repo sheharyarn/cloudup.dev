@@ -1,16 +1,16 @@
 <!-- Heading: Start -->
 <h1 align="center">
   <a href="https://cloudup.dev/">
-    <img alt="CloudUp" src='static/logo.png' width='450px'/>
+    <img alt="CloudUp" src='static/logo.png' width='400px'/>
   </a>
 </h1>
 
 <p align="center">
-  [![Follow on Twitter][shield-twitter]][social-twitter] [![Follow on Github][shield-github]][social-github] [![Visit CloudUp][shield-site]][cloudup]
+[![Follow on Twitter][shield-twitter]][social-twitter] [![Follow on Github][shield-github]][social-github] [![Visit CloudUp][shield-site]][cloudup]
 </p>
 
 <p align="center">
-  <b>Tools to jump-start development on the cloud!</b></br>
+  <b>Tools to jump-start development on the cloud!</b><br/>
   <sub>Community sourced tools and configurations for beginners to simplify working with Docker, Kubernetes and more</sub>
 </p>
 
