@@ -86,8 +86,12 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sass',
       options: {
-        includePaths: ['src/styles'],
-        data: `@import 'variables', 'breakpoints', 'mixins';`,
+        sassOptions: {
+          indentedSyntax: true,
+          includePaths: ['src/styles'],
+        },
+        additionalData: `@import 'variables', 'breakpoints', 'mixins'`,
+        useResolveUrlLoader: true,
       },
     },
   ],
