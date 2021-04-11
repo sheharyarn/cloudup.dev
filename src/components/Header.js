@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import { TwitterFollowButton } from 'react-twitter-embed';
-import styles from './Header.module.sass';
+import * as styles from './Header.module.sass';
 
 
 const SITE_QUERY = graphql`
@@ -34,7 +34,7 @@ const Header = () => {
   return (
     <header className={`${styles.container} ${styles.home}`}>
       <h3 className={styles.siteTitle}>
-        <Link to={`/`} className={styles.heading}>
+        <Link to={`/`}>
           {site.title}
         </Link>
       </h3>
@@ -78,7 +78,7 @@ export const HeaderWithContent = ({ title, content }) => {
         {title}
       </h2>
 
-      <section className={styles.contentContainer}>
+      <section>
         {content}
       </section>
     </header>

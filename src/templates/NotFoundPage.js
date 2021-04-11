@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from 'src/components/Layout';
 import SEO from 'src/components/SEO';
-import styles from './NotFoundPage.module.sass';
+import * as styles from './NotFoundPage.module.sass';
 
 const NotFoundPage = ({ data, location }) => {
   return (

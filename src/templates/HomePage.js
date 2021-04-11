@@ -4,7 +4,7 @@ import DockerChooser from 'src/components/DockerChooser';
 import Layout        from 'src/components/Layout';
 import SEO           from 'src/components/SEO';
 
-import styles        from './HomePage.module.sass';
+import * as styles   from './HomePage.module.sass';
 
 
 const HomePage = ({ data, location }) => {

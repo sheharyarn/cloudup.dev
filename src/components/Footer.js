@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import ExternalLink from 'src/components/ExternalLink';
 import URLs from 'src/utils/urls';
 
-import styles from './Footer.module.sass';
+import * as styles from './Footer.module.sass';
 
 
 const SITE_QUERY = graphql`

@@ -5,7 +5,7 @@ import { FaDocker }       from 'react-icons/fa';
 import { AiFillFile }     from 'react-icons/ai';
 import { IoIosSettings }  from 'react-icons/io';
 
-import styles from './Icon.module.sass';
+import * as styles from './Icon.module.sass';
 
 
 

@@ -2,8 +2,8 @@ import React     from 'react';
 import PropTypes from 'prop-types';
 import { navigate, graphql, useStaticQuery } from 'gatsby';
 
-import URLs   from 'src/utils/urls';
-import styles from './DockerChooser.module.sass';
+import URLs        from 'src/utils/urls';
+import * as styles from './DockerChooser.module.sass';
 
 
 

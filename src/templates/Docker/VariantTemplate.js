@@ -1,6 +1,6 @@
-import _                  from 'lodash';
-import React              from 'react';
-import { graphql }        from 'gatsby';
+import _             from 'lodash';
+import React         from 'react';
+import { graphql }   from 'gatsby';
 
 import CodeBlock     from 'src/components/CodeBlock';
 import DockerChooser from 'src/components/DockerChooser';
@@ -8,7 +8,7 @@ import Icon          from 'src/components/Icon';
 import Layout        from 'src/components/Layout';
 import SEO           from 'src/components/SEO';
 
-import styles        from './VariantTemplate.module.sass';
+import * as styles   from './VariantTemplate.module.sass';
 
 
 
