@@ -36,6 +36,7 @@ const DockerChooser = (props) => {
       }));
 
 
+  const [isLoading, setLoading] = React.useState(false);
   const [platformId, setPlatform] = React.useState(props.platformId);
   const [variantId, setVariant] = React.useState(props.variantId);
 
@@ -50,8 +51,14 @@ const DockerChooser = (props) => {
 
   // Navigate to the appropriate page when variant is selected
   React.useEffect(() => {
-    if (variantId && variantId !== '')
-      navigate(URLs.docker.variant(platformId, variantId));
+    if (variantId && variantId !== '') {
+      const path = URLs.docker.variant(platformId, variantId);
+
+      // Don't set loading if already on page
+      if (window.location.pathname !== path) setLoading(true);
+
+      navigate(path);
+    }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [variantId]);
@@ -68,6 +75,7 @@ const DockerChooser = (props) => {
           <select
             id="docker-platform"
             value={platformId}
+            disabled={isLoading}
             onChange={e => {
               setPlatform(e.target.value);
               setVariant('');
@@ -92,6 +100,7 @@ const DockerChooser = (props) => {
           <select
             id="docker-variant"
             value={variantId}
+            disabled={isLoading}
             onChange={e => setVariant(e.target.value)}
           >
             <option value="" disabled>

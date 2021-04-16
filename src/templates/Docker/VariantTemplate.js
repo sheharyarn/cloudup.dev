@@ -88,6 +88,7 @@ const VariantTemplate = ({ data, location, pageContext }) => {
         <div className={styles.files}>
           {variant.files.map(ft => (
             <FileView
+              key={ft}
               type={ft}
               text={preparedFiles[ft]}
             />
