@@ -38,6 +38,7 @@
   +media-breakpoint-up(large)
     +margin($horz: 10rem)
     +flex-center($direction: row-reverse)
+    align-items: start
     min-width: 0
 
   +media-breakpoint-up(xlarge)
@@ -72,6 +73,15 @@
       &:active
         background-color: $teal
 
+    .toggleOpen
+      +margin($vert: 0.3rem)
+      +margin($horz: 0.5rem)
+      transition: all .2s ease-out
+      transform: rotate(90deg)
+      float: right
+      background: transparent
+      border: none
+      color: $cyan
 
 
   .files
@@ -85,6 +95,20 @@
       +margin($bottom: $card-margin)
       +card
 
+      .codeblock
+        height: auto
+        overflow: hidden
+        transition: all .2s ease-out
+        // transform-origin: top
+        // transform: scaleY(1)
+
+      &.closed
+        .codeblock
+          height: 0
+          // transform: scaleY(0)
+
+        .toggleOpen
+          transform: rotate(0deg)
 
   .configs
     +card

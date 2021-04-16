@@ -1,8 +1,8 @@
 import React     from 'react';
 import PropTypes from 'prop-types';
 
-import { FaDocker }       from 'react-icons/fa';
-import { AiFillFile }     from 'react-icons/ai';
+import { FaDocker, FaChevronRight } from 'react-icons/fa';
+import { AiFillFile } from 'react-icons/ai';
 import { IoIosSettings }  from 'react-icons/io';
 
 import * as styles from './Icon.module.sass';
@@ -10,6 +10,8 @@ import * as styles from './Icon.module.sass';
 
 
 const ICONS = {
+  chevron:    <FaChevronRight />,
+
   settings:   <IoIosSettings />,
   dockerfile: <FaDocker />,
   file:       <AiFillFile />,

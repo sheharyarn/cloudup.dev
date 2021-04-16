@@ -87,24 +87,48 @@ const VariantTemplate = ({ data, location, pageContext }) => {
 
         <div className={styles.files}>
           {variant.files.map(ft => (
-            <div key={ft} className={`${styles.file}`}>
-              <span className={styles.cardTitle}>
-                <Icon className={styles.icon} type={ft} />
-                {_.capitalize(ft)}
-                <CopyButton
-                  className={styles.copyButton}
-                  text={preparedFiles[ft]}
-                />
-              </span>
-
-              <CodeBlock language={ft} code={preparedFiles[ft]} />
-            </div>
+            <FileView
+              type={ft}
+              text={preparedFiles[ft]}
+            />
           ))}
         </div>
       </div>
     </Layout>
   )
 };
+
+
+const FileView = ({ type, text }) => {
+  console.log(type)
+  const isMain = type === 'dockerfile';
+  const [isOpen, setOpen] = React.useState(isMain);
+  const klass = isOpen ? '' : styles.closed;
+
+  const toggleOpen = () => setOpen(!isOpen);
+
+  return (
+    <div className={`${styles.file} ${klass}`}>
+      <span className={styles.cardTitle}>
+        <Icon className={styles.icon} type={type} />
+        {_.capitalize(type)}
+
+        <button className={styles.toggleOpen} onClick={toggleOpen}>
+          <Icon type="chevron" />
+        </button>
+
+        <CopyButton
+          className={styles.copyButton}
+          text={text}
+        />
+      </span>
+
+      <div className={styles.codeblock}>
+        <CodeBlock language={type} code={text} />
+      </div>
+    </div>
+  );
+}
 
 
 const Banner = ({ platform, variant }) => (
