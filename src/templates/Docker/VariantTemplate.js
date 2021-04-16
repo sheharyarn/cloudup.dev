@@ -3,6 +3,7 @@ import React         from 'react';
 import { graphql }   from 'gatsby';
 
 import CodeBlock     from 'src/components/CodeBlock';
+import CopyButton    from 'src/components/CopyButton';
 import DockerChooser from 'src/components/DockerChooser';
 import Icon          from 'src/components/Icon';
 import Layout        from 'src/components/Layout';
@@ -27,19 +28,6 @@ const prepareFiles = (files, configVars, userVars) => (
       return preparedFiles;
     }, {})
 );
-
-
-const CopyButton = ({ code }) => {
-  const onClick = () => {
-    navigator.clipboard.writeText(code);
-  };
-
-  return (
-    <button className={styles.copyButton} onClick={onClick}>
-      Copy
-    </button>
-  );
-};
 
 
 const VariantTemplate = ({ data, location, pageContext }) => {
@@ -103,7 +91,10 @@ const VariantTemplate = ({ data, location, pageContext }) => {
               <span className={styles.cardTitle}>
                 <Icon className={styles.icon} type={ft} />
                 {_.capitalize(ft)}
-                <CopyButton code={preparedFiles[ft]} />
+                <CopyButton
+                  className={styles.copyButton}
+                  text={preparedFiles[ft]}
+                />
               </span>
 
               <CodeBlock language={ft} code={preparedFiles[ft]} />

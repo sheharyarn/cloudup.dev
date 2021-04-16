@@ -14,7 +14,7 @@ const HomePage = ({ data, location }) => {
 
       <div className={styles.tools}>
         <div className={styles.dockerTool}>
-          <h2>Dockerfile Generator</h2>
+          <h2>No-Nonsense Dockerfiles</h2>
 
           <p>
             Use our community sourced Dockerfile generator to quickly
