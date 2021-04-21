@@ -54,7 +54,7 @@
     .copyButton
       +padding($vert: 0.6rem)
       +padding($horz: 1rem)
-      +margin($right: 0.5rem)
+      +margin($right: 1rem)
 
       float: right
       background-color: $gray-300
@@ -74,14 +74,19 @@
         background-color: $teal
 
     .toggleOpen
-      +margin($vert: 0.3rem)
-      +margin($horz: 0.5rem)
-      transition: all .2s ease-out
-      transform: rotate(90deg)
+      +padding($vert: 0.4rem)
+      +padding($horz: 1rem)
       float: right
       background: transparent
       border: none
       color: $cyan
+      line-height: 1
+      font-size: 1.5rem
+
+      svg
+        bottom: 0.1em
+        transition: all .2s ease-out
+        transform: rotate(90deg)
 
 
   .files
@@ -107,7 +112,7 @@
           height: 0
           // transform: scaleY(0)
 
-        .toggleOpen
+        .toggleOpen svg
           transform: rotate(0deg)
 
   .configs
