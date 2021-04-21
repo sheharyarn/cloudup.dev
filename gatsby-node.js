@@ -83,7 +83,8 @@ exports.createPages = async ({ graphql, actions }) => {
         variantData
           .files
           .reduce((acc, filetype) => {
-            acc[filetype] = fs.readFileSync(`./content/docker/${platformId}/${variantId}.${filetype}`, 'utf-8');
+            const path = `./content/docker/${platformId}/${variantId}/${variantId}.${filetype}`;
+            acc[filetype] = fs.readFileSync(path, 'utf-8');
             return acc;
           }, {});
 
