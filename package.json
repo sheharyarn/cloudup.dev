@@ -9,6 +9,7 @@
     "gatsby-image": "3.5.0",
     "gatsby-plugin-google-analytics": "3.5.0",
     "gatsby-plugin-manifest": "3.5.0",
+    "gatsby-plugin-nprogress": "3.5.0",
     "gatsby-plugin-offline": "4.5.1",
     "gatsby-plugin-react-helmet": "4.5.0",
     "gatsby-plugin-sass": "4.5.0",

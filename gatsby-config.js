@@ -31,6 +31,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: 'white',
+        showSpinner: true,
+      },
+    },
+    {
       resolve: `gatsby-transformer-yaml`,
       options: {
         typeName: 'Yaml',
