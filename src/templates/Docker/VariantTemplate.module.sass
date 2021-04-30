@@ -28,7 +28,7 @@
 
 
 
-.configBuilder
+.container
   $card-margin: 4rem
   +margin($horz: 2rem)
 
@@ -89,7 +89,7 @@
         transform: rotate(90deg)
 
 
-  .files
+  .columnFiles
     flex-grow: 1
     min-width: 0
 
@@ -120,7 +120,7 @@
     +margin($bottom: $card-margin)
 
     +media-breakpoint-up(large)
-      min-width: 35rem
+      width: 35rem
       align-self: start
 
     +media-breakpoint-down(medium)

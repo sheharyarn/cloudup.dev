@@ -1,5 +1,6 @@
 import _             from 'lodash';
 import React         from 'react';
+import DOMPurify     from 'dompurify';
 import { graphql }   from 'gatsby';
 
 import CodeBlock     from 'src/components/CodeBlock';
@@ -12,31 +13,42 @@ import SEO           from 'src/components/SEO';
 import * as styles   from './VariantTemplate.module.sass';
 
 
+/* Helpers: Apply variables to file contents */
 
-const prepareFiles = (files, configVars, userVars) => (
+const prepareOneFile = (file, configVars, userVars) => {
+  if (typeof file !== 'string')
+    return null;
+
+  return configVars.reduce((content, v) => {
+    const userValue = userVars[v.name];
+    const value = (userValue && userValue !== '') ? userValue : v.value;
+    const regex = new RegExp(`@{${v.name}}`, 'g');
+
+    return DOMPurify.sanitize(content.replace(regex, value));
+  }, file);
+}
+
+const prepareAllFiles = (files, configVars, userVars) => (
   Object
     .keys(files)
     .reduce((preparedFiles, filetype) => {
-      preparedFiles[filetype] = configVars.reduce((content, v) => {
-        const userValue = userVars[v.name];
-        const value = (userValue && userValue !== '') ? userValue : v.value;
-        const regex = new RegExp(`@{${v.name}}`, 'g');
-
-        return content.replace(regex, value);
-      }, files[filetype]);
-
+      preparedFiles[filetype] = prepareOneFile(files[filetype], configVars, userVars);
       return preparedFiles;
     }, {})
 );
 
 
+
+/* Main Component */
+
 const VariantTemplate = ({ data, location, pageContext }) => {
-  const { platformId, variantId, files } = pageContext;
+  const { platformId, variantId, files, readme } = pageContext;
   const platform = data.platform;
   const variant = platform.variants.find(v => v.id === variantId);
 
   const [userVars, setVars] = React.useState({});
-  const preparedFiles = prepareFiles(files, variant.variables, userVars);
+  const preparedFiles = prepareAllFiles(files, variant.variables, userVars);
+  const preparedReadme = prepareOneFile(readme, variant.variables, userVars);
   const addVar = (name, value) => setVars(uv => ({...uv, [name]: value}));
 
   return (
@@ -55,37 +67,51 @@ const VariantTemplate = ({ data, location, pageContext }) => {
         description={`Generate optimized and production-ready docker configs for ${variant.name} or other types of ${platform.name} apps`}
       />
 
-
       <Banner platform={platform} variant={variant} />
 
+      <div className={styles.container}>
 
-      <div className={styles.configBuilder}>
-        <div className={styles.configs}>
-          <span className={styles.cardTitle}>
-            <Icon className={styles.icon} type="settings" />
-            Configure Settings
-          </span>
+        {/** Column: Show readme + config builder **/}
+        <div className={styles.columnInfo}>
+          {preparedReadme && (
+            <div className={styles.configs}>
+              <span className={styles.cardTitle}>
+                <Icon className={styles.icon} type="settings" />
+                Instructions
+              </span>
 
-          <div className={styles.vars}>
-            {variant.variables.map(v => (
-              <div key={v.name} className={styles.group}>
-                <label>
-                  {v.name}
+              <div dangerouslySetInnerHTML={{ __html: preparedReadme }}></div>
+            </div>
+          )}
 
-                  <input
-                    type="text"
-                    name={v.name}
-                    aria-label={`Variable value for '${v.name}'`}
-                    placeholder={v.value}
-                    onChange={e => addVar(v.name, e.target.value)}
-                  />
-                </label>
-              </div>
-            ))}
+          <div className={styles.configs}>
+            <span className={styles.cardTitle}>
+              <Icon className={styles.icon} type="settings" />
+              Configure Settings
+            </span>
+
+            <div className={styles.vars}>
+              {variant.variables.map(v => (
+                <div key={v.name} className={styles.group}>
+                  <label>
+                    {v.name}
+
+                    <input
+                      type="text"
+                      name={v.name}
+                      aria-label={`Variable value for '${v.name}'`}
+                      placeholder={v.value}
+                      onChange={e => addVar(v.name, e.target.value)}
+                    />
+                  </label>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className={styles.files}>
+        {/** Column: Show prepared files **/}
+        <div className={styles.columnFiles}>
           {variant.files.map(ft => (
             <FileView
               key={ft}
@@ -101,7 +127,6 @@ const VariantTemplate = ({ data, location, pageContext }) => {
 
 
 const FileView = ({ type, text }) => {
-  console.log(type)
   const isMain = type === 'dockerfile';
   const [isOpen, setOpen] = React.useState(isMain);
   const klass = isOpen ? '' : styles.closed;
