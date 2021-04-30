@@ -118,42 +118,41 @@ b, strong
 
 $code-prefix: "language-"
 
+.has-code-overrides
+  code[class*=#{$code-prefix}],
+  pre[class*=#{$code-prefix}]
+    border-radius: $border-radius
+    font-family: $font-code
+    font-size: 1.5rem
 
-code[class*=#{$code-prefix}],
-pre[class*=#{$code-prefix}]
-  border-radius: $border-radius
-  font-family: $font-code
-  font-size: 1.5rem
+    // Manual override of Material Theme
+    color: #8577b5
+    background-color: $white
 
-  // Manual override of Material Theme
-  color: #8577b5
-  background-color: $white !important
-
-  +media-breakpoint-down(small)
-    font-size: 1.3rem
-
-
-pre[class*=#{$code-prefix}]
-  +margin($vert: 0)
-
-  // Manual override of Line Number styles
-  &.line-numbers
-    position: relative
-    padding-left: 3.8em
-    counter-reset: linenumber
-
-    .line-numbers-rows
-      border-right: none
-      font-size: 90%
-      left: -3.9em
-      top: -1px
-
-      > span::before
-        color: $gray-300
+    +media-breakpoint-down(small)
+      font-size: 1.3rem
 
 
-code[class*=#{$code-prefix}]
-  *:not(pre) > &
+  pre[class*=#{$code-prefix}]
+    +margin($vert: 0)
+
+    // Manual override of Line Number styles
+    &.line-numbers
+      position: relative
+      padding-left: 3.8em
+      counter-reset: linenumber
+
+      .line-numbers-rows
+        border-right: none
+        font-size: 90%
+        left: -3.9em
+        top: -1px
+
+        > span::before
+          color: $gray-300
+
+
+  *:not(pre) > code[class*=#{$code-prefix}]
     +padding($vert: 0.3rem)
     +padding($horz: 0.7rem)
     border-radius: $border-radius
@@ -163,7 +162,7 @@ code[class*=#{$code-prefix}]
       white-space: pre
 
   // TODO: Move this to link style
-  a > &
+  a > code[class*=#{$code-prefix}]
     color: #7c4dff
 
 
