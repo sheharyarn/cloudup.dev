@@ -5,8 +5,8 @@ module.exports = {
       name: `Sheharyar Naseer`,
       website: `https://shyr.io/`,
     },
-    description: `Tools to jump start your development on the cloud`,
-    siteUrl: `https://shyr.io/`,
+    description: `Quick tools for development on the cloud`,
+    siteUrl: `https://cloudup.dev/`,
     social: {
       twitter: {
         user: 'sheharyarn',
