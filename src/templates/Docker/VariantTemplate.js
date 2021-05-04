@@ -1,6 +1,6 @@
 import _             from 'lodash';
 import React         from 'react';
-import DOMPurify     from 'dompurify';
+import sanitizeHTML  from 'sanitize-html';
 import { graphql }   from 'gatsby';
 
 import CodeBlock     from 'src/components/CodeBlock';
@@ -15,6 +15,11 @@ import * as styles   from './VariantTemplate.module.sass';
 
 /* Helpers: Apply variables to file contents */
 
+const SANITIZE_OPTS = {
+  allowedTags: [],
+  allowedAttributes: {}
+};
+
 const prepareOneFile = (file, configVars, userVars) => {
   if (typeof file !== 'string')
     return null;
@@ -22,9 +27,10 @@ const prepareOneFile = (file, configVars, userVars) => {
   return configVars.reduce((content, v) => {
     const userValue = userVars[v.name];
     const value = (userValue && userValue !== '') ? userValue : v.value;
+    const cleanedValue = sanitizeHTML(value, SANITIZE_OPTS);
     const regex = new RegExp(`@{${v.name}}`, 'g');
 
-    return content.replace(regex, DOMPurify.sanitize(value));
+    return content.replace(regex, cleanedValue);
   }, file);
 }
 
