@@ -106,23 +106,29 @@
         transition: all .2s ease-out
 
       &.closed
+        border-bottom: none
+
         .codeblock
           height: 0
 
         .toggleOpen svg
           transform: rotate(0deg)
 
+
   .columnInfo
     .infoCard
       +card
       +margin($bottom: $card-margin)
 
+      +media-breakpoint-down(medium)
+        align-self: center
+
       +media-breakpoint-up(large)
         width: 35rem
         align-self: start
 
-      +media-breakpoint-down(medium)
-        align-self: center
+      +media-breakpoint-up(xlarge)
+        width: 40rem
 
       .vars
         +padding($all: 2rem)

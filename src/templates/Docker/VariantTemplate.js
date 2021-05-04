@@ -77,7 +77,7 @@ const VariantTemplate = ({ data, location, pageContext }) => {
           {preparedReadme && (
             <div className={styles.infoCard}>
               <span className={styles.cardTitle}>
-                <Icon className={styles.icon} type="settings" />
+                <Icon className={styles.icon} type="readme" />
                 Instructions
               </span>
 
@@ -91,7 +91,7 @@ const VariantTemplate = ({ data, location, pageContext }) => {
           <div className={styles.infoCard}>
             <span className={styles.cardTitle}>
               <Icon className={styles.icon} type="settings" />
-              Configure Settings
+              Configure Variables
             </span>
 
             <div className={styles.vars}>
