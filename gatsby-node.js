@@ -85,12 +85,12 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.docker.nodes.forEach(dockerNode => {
     const platformId = dockerNode.fields.platformId;
 
-    // Create page for platform (e.g. /docker/elixir)
-    createPage({
-      path: URLs.docker.platform(platformId),
-      context: { platformId },
-      component: TEMPLATES.dockerPlatform,
-    });
+    // // Create page for platform (e.g. /docker/elixir)
+    // createPage({
+    //   path: URLs.docker.platform(platformId),
+    //   context: { platformId },
+    //   component: TEMPLATES.dockerPlatform,
+    // });
 
 
     // Create page for each variant (e.g. /docker/elixir/phoenix)
