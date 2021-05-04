@@ -104,41 +104,48 @@
         height: auto
         overflow: hidden
         transition: all .2s ease-out
-        // transform-origin: top
-        // transform: scaleY(1)
 
       &.closed
         .codeblock
           height: 0
-          // transform: scaleY(0)
 
         .toggleOpen svg
           transform: rotate(0deg)
 
-  .configs
-    +card
-    +margin($bottom: $card-margin)
+  .columnInfo
+    .infoCard
+      +card
+      +margin($bottom: $card-margin)
 
-    +media-breakpoint-up(large)
-      width: 35rem
-      align-self: start
+      +media-breakpoint-up(large)
+        width: 35rem
+        align-self: start
 
-    +media-breakpoint-down(medium)
-      align-self: center
+      +media-breakpoint-down(medium)
+        align-self: center
 
-    .vars
-      +padding($all: 2rem)
+      .vars
+        +padding($all: 2rem)
 
-    .group
-      &:not(:first-child)
-        +margin($top: 2rem)
+      .group
+        &:not(:first-child)
+          +margin($top: 2rem)
 
-      label
-        +control-label
-        font-family: $font-code
-        color: $gray-700
+        label
+          +control-label
+          font-family: $font-code
+          color: $gray-700
 
+        input
+          +input-text
+          +margin($top: 0.7rem)
 
-      input
-        +input-text
-        +margin($top: 0.7rem)
+    .readmeContent
+      +padding($horz: 2rem)
+
+      p
+        font-size: 1.5rem
+
+      pre, pre code
+        font-size: 1.2rem
+        border-radius: $border-radius

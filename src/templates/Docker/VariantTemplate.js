@@ -24,7 +24,7 @@ const prepareOneFile = (file, configVars, userVars) => {
     const value = (userValue && userValue !== '') ? userValue : v.value;
     const regex = new RegExp(`@{${v.name}}`, 'g');
 
-    return DOMPurify.sanitize(content.replace(regex, value));
+    return content.replace(regex, DOMPurify.sanitize(value));
   }, file);
 }
 
@@ -70,21 +70,25 @@ const VariantTemplate = ({ data, location, pageContext }) => {
       <Banner platform={platform} variant={variant} />
 
       <div className={styles.container}>
-
         {/** Column: Show readme + config builder **/}
         <div className={styles.columnInfo}>
+
+          {/** Card: Show README when available **/}
           {preparedReadme && (
-            <div className={styles.configs}>
+            <div className={styles.infoCard}>
               <span className={styles.cardTitle}>
                 <Icon className={styles.icon} type="settings" />
                 Instructions
               </span>
 
-              <div dangerouslySetInnerHTML={{ __html: preparedReadme }}></div>
+              <div
+                className={styles.readmeContent}
+                dangerouslySetInnerHTML={{ __html: preparedReadme }}
+              ></div>
             </div>
           )}
 
-          <div className={styles.configs}>
+          <div className={styles.infoCard}>
             <span className={styles.cardTitle}>
               <Icon className={styles.icon} type="settings" />
               Configure Settings
@@ -111,7 +115,7 @@ const VariantTemplate = ({ data, location, pageContext }) => {
         </div>
 
         {/** Column: Show prepared files **/}
-        <div className={styles.columnFiles}>
+        <div className={`has-code-overrides ${styles.columnFiles}`}>
           {variant.files.map(ft => (
             <FileView
               key={ft}
