@@ -75,7 +75,7 @@ const VariantTemplate = ({ data, location, pageContext }) => {
         />
       }>
       <SEO
-        title={`${variant.name} - Dockerfile Generator`}
+        title={`Dockerfile for ${variant.name} - Dockerize Your Apps`}
         description={`Generate optimized and production-ready docker configs for ${variant.name} or other types of ${platform.name} apps`}
       />
 
