@@ -117,10 +117,7 @@
 
 
   .columnInfo
-    .infoCard
-      +card
-      +margin($bottom: $card-margin)
-
+    @mixin infoSize
       +media-breakpoint-down(medium)
         align-self: center
 
@@ -130,6 +127,11 @@
 
       +media-breakpoint-up(xlarge)
         width: 40rem
+
+    .infoCard
+      +card
+      +infoSize
+      +margin($bottom: $card-margin)
 
       .vars
         +padding($all: 2rem)
@@ -156,3 +158,16 @@
       pre, pre code
         font-size: 1.2rem
         border-radius: $border-radius
+
+
+    .opensource
+      +infoSize
+      +media-breakpoint-down(medium)
+        display: none
+
+      p
+        font-size: 1.3rem
+        color: $gray-600
+
+      a
+        color: $orange

@@ -6,9 +6,11 @@ import { graphql }   from 'gatsby';
 import CodeBlock     from 'src/components/CodeBlock';
 import CopyButton    from 'src/components/CopyButton';
 import DockerChooser from 'src/components/DockerChooser';
+import ExternalLink  from 'src/components/ExternalLink';
 import Icon          from 'src/components/Icon';
 import Layout        from 'src/components/Layout';
 import SEO           from 'src/components/SEO';
+import URLs          from 'src/utils/urls';
 
 import * as styles   from './VariantTemplate.module.sass';
 
@@ -49,13 +51,17 @@ const prepareAllFiles = (files, configVars, userVars) => (
 
 const VariantTemplate = ({ data, location, pageContext }) => {
   const { platformId, variantId, files, readme } = pageContext;
-  const platform = data.platform;
+  const { site, platform } = data;
+  const github = site.siteMetadata.social.github;
   const variant = platform.variants.find(v => v.id === variantId);
 
   const [userVars, setVars] = React.useState({});
   const preparedFiles = prepareAllFiles(files, variant.variables, userVars);
   const preparedReadme = prepareOneFile(readme, variant.variables, userVars);
   const addVar = (name, value) => setVars(uv => ({...uv, [name]: value}));
+
+  const githubIssues = URLs.github.repo(github.user, github.name) + '/issues/new';
+  const githubStar = `https://ghbtns.com/github-btn.html?user=${github.user}&repo=${github.repo}&type=star&count=true&size=large`
 
   return (
     <Layout
@@ -117,6 +123,26 @@ const VariantTemplate = ({ data, location, pageContext }) => {
                 </div>
               ))}
             </div>
+          </div>
+
+          <div className={styles.opensource}>
+            <p>
+              This is an Open Source project and stays alive because of the
+              DevOps community sharing their time and knowledge.
+            </p>
+            <p>
+              You can also help by reporting bugs or sharing your
+              configuration on <ExternalLink url={githubIssues}>GitHub</ExternalLink>.
+            </p>
+
+            <iframe
+              src={githubStar}
+              frameborder="0"
+              scrolling="0"
+              width="170"
+              height="30"
+              title="GitHub">
+            </iframe>
           </div>
         </div>
 
@@ -180,6 +206,14 @@ const Banner = ({ platform, variant }) => (
 
 export const pageQuery = graphql`
   query DockerConfigById($platformId: String!) {
+    site {
+      siteMetadata {
+        social {
+          github { user, repo }
+        }
+      }
+    }
+
     platform: yaml(fields: {
       tool: { eq: "docker" }
       platformId: { eq: $platformId }
