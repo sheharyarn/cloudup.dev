@@ -60,7 +60,7 @@ const VariantTemplate = ({ data, location, pageContext }) => {
   const preparedReadme = prepareOneFile(readme, variant.variables, userVars);
   const addVar = (name, value) => setVars(uv => ({...uv, [name]: value}));
 
-  const githubIssues = URLs.github.repo(github.user, github.name) + '/issues/new';
+  const githubIssues = URLs.github.repo(github.user, github.repo) + '/issues/new';
   const githubStar = `https://ghbtns.com/github-btn.html?user=${github.user}&repo=${github.repo}&type=star&count=true&size=large`
 
   return (
@@ -137,7 +137,7 @@ const VariantTemplate = ({ data, location, pageContext }) => {
 
             <iframe
               src={githubStar}
-              frameborder="0"
+              frameBorder="0"
               scrolling="0"
               width="170"
               height="30"

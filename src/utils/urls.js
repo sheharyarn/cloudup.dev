@@ -2,6 +2,11 @@
  * URL Helpers
  */
 
+const removeTrailingSlash = (url) => {
+  return (url[url.length - 1] == "/") ? url.substr(0, url.length - 1) : url;
+}
+
+
 module.exports = {
   root: () => `/`,
 
@@ -19,5 +24,10 @@ module.exports = {
     repo:     (user, repo)        => `https://github.com/${user}/${repo}`,
   },
 
+  utils: {
+    isEqual: (url1, url2) => {
+      return removeTrailingSlash(url1) === removeTrailingSlash(url2);
+    }
+  }
 };
 
