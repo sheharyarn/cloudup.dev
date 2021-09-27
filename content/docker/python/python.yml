@@ -1,0 +1,19 @@
+name: Python
+variants:
+
+  - id: script
+    name: Simple Python Scripts
+    description: Dockerfile Generator for basic Python scripts and apps without any specific framework
+    files:
+      - dockerfile
+      - dockerignore
+    variables:
+      - name:  'PYTHON_VERSION'
+        value: '3.10'
+      - name:  'REQUIREMENTS_FILE'
+        value: 'requirements.txt'
+      - name:  'APP_NAME'
+        value: 'my_app'
+      - name:  'ENTRYPOINT'
+        value: 'script.py'
+
