@@ -17,3 +17,21 @@ variants:
       - name:  'ENTRYPOINT'
         value: 'script.py'
 
+  - id: flask
+    name: Flask Web Apps
+    description: Dockerfile Generator for web applications built with Flask
+    files:
+      - dockerfile
+      - dockerignore
+    variables:
+      - name:  'PYTHON_VERSION'
+        value: '3.10'
+      - name:  'DEFAULT_ENV'
+        value: 'production'
+      - name:  'REQUIREMENTS_FILE'
+        value: 'requirements.txt'
+      - name:  'PORT'
+        value: '5000'
+      - name:  'APP_NAME'
+        value: 'app'
+

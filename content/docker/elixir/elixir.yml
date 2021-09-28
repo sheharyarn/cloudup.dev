@@ -18,7 +18,7 @@ variants:
         value: '3000'
 
   - id: phoenix
-    name: Phoenix Web Apps
+    name: Phoenix Framework
     description: Elixir apps built using the Phoenix Framework
     files:
       - dockerfile
