@@ -15,21 +15,19 @@ variants:
       - name:  'ENTRYPOINT'
         value: 'main.rb'
 
-  # - id: flask
-  #   name: Flask Web Apps
-  #   description: Dockerfile Generator for web applications built with Flask
-  #   files:
-  #     - dockerfile
-  #     - dockerignore
-  #   variables:
-  #     - name:  'PYTHON_VERSION'
-  #       value: '3.10'
-  #     - name:  'DEFAULT_ENV'
-  #       value: 'production'
-  #     - name:  'REQUIREMENTS_FILE'
-  #       value: 'requirements.txt'
-  #     - name:  'PORT'
-  #       value: '5000'
-  #     - name:  'APP_NAME'
-  #       value: 'app'
+  - id: sinatra
+    name: Sinatra Web Apps
+    description: Dockerize Sinatra or Rack web applications in Ruby
+    files:
+      - dockerfile
+      - dockerignore
+    variables:
+      - name:  'RUBY_VERSION'
+        value: '3.0'
+      - name:  'DEFAULT_ENV'
+        value: 'production'
+      - name:  'PORT'
+        value: '4567'
+      - name:  'APP_NAME'
+        value: 'app'
 
