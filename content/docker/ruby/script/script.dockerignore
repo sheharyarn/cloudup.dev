@@ -1,0 +1,10 @@
+.git
+.gitignore
+.vagrant
+Vagrantfile
+.idea
+.ruby-version
+LICENSE
+Dockerfile
+.dockerignore
+README.md
