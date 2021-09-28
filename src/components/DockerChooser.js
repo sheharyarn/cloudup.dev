@@ -39,7 +39,7 @@ const DockerChooser = (props) => {
   const [isLoading, setLoading] = React.useState(false);
   const [platformId, setPlatform] = React.useState(props.platformId);
   const [variantId, setVariant] = React.useState(props.variantId);
-
+  const currentPath = typeof window === 'undefined' ? null : window.location.pathname;
 
   // Find the available variants for the platform object whenever a
   // platform is selected
@@ -55,11 +55,11 @@ const DockerChooser = (props) => {
       const path = URLs.docker.variant(platformId, variantId);
 
       // Don't set loading if already on page
-      setLoading(window.location.pathname !== path);
+      setLoading(currentPath !== path);
       navigate(path);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [window.location.pathname, variantId]);
+  }, [currentPath, variantId]);
 
   const klass = props.inverse ? styles.inverse : '';
 
