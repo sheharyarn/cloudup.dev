@@ -26,7 +26,7 @@
     "gatsby-transformer-sharp": "3.6.0",
     "gatsby-transformer-yaml": "3.6.0",
     "lodash": "4.17.21",
-    "moment": "2.29.1",
+    "moment": "2.29.2",
     "normalize-scss": "7.0.1",
     "prism-themes": "1.7.0",
     "prismjs": "1.23.0",
