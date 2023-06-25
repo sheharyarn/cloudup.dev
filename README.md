@@ -16,6 +16,12 @@
   <sub>Community sourced tools and configurations for beginners to simplify working with Docker, Kubernetes and more</sub>
 </p>
 
+<p align="center">
+  <a href="https://gdglahore.com/">
+    <img alt="GDG Lahore" src='static/gdg-lahore.png' width='300px'/>
+  </a>
+</p>
+
 <br/>
 <!-- Heading: End -->
 
