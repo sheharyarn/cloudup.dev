@@ -7,7 +7,7 @@
 
 <h4 align="center">
 
-  [![Follow on Twitter][shield-twitter]][social-twitter] [![Follow on Github][shield-github]][social-github] [![Visit CloudUp][shield-site]][cloudup]
+[![Follow on Twitter][shield-twitter]][social-twitter] [![Follow on Github][shield-github]][social-github] [![Visit CloudUp][shield-site]][cloudup]
 
 </h4>
 
@@ -25,8 +25,6 @@
 <br/>
 <!-- Heading: End -->
 
-
-
 ## [Dockerfile Collection][cloudup]
 
 The project contains a collection of optimized and production-ready Dockerfile images for different programming
@@ -40,29 +38,20 @@ generated for you on the fly.
 
 <br/>
 
-
-
-
 ## Kubernetes Manifest Generator
 
 Under construction.
 
 <br/>
 
-
-
-
 ## Contributing
 
- - [Fork][github-fork], Enhance, Send PR
- - Lock issues with any bugs or feature requests
- - Implement something from Roadmap
- - Spread the word :heart:
+- [Fork][github-fork], Enhance, Send PR
+- Lock issues with any bugs or feature requests
+- Implement something from Roadmap
+- Spread the word :heart:
 
 <br>
-
-
-
 
 ## License
 
@@ -70,22 +59,12 @@ This source code is available as open source under the terms of the [MIT License
 
 <br>
 
-
-
-
-
-  [cloudup]:              https://cloudup.dev/
-  [logo]:                 static/logo.png
-  [license]:              ./LICENSE
-
-  [shield-twitter]:       https://img.shields.io/twitter/follow/sheharyarn?color=%231adba2&label=Follow%20on%20Twitter&style=flat-square
-  [shield-github]:        https://img.shields.io/github/followers/sheharyarn?color=%231adba2&label=Follow%20on%20Github&style=flat-square
-  [shield-site]:          https://img.shields.io/badge/Visit-CloudUp.dev%20%E2%86%92-green?&style=flat-square&color=1adba2
-
-  [social-twitter]:       https://twitter.com/sheharyarn
-  [social-github]:        https://github.com/sheharyarn
-
-
-  [github-fork]:          https://github.com/sheharyarn/cloudup.dev/fork
-
-
+[cloudup]: https://cloudup.dev/
+[logo]: static/logo.png
+[license]: ./LICENSE
+[shield-twitter]: https://img.shields.io/twitter/follow/sheharyarn?color=%231adba2&label=Follow%20on%20Twitter&style=flat-square
+[shield-github]: https://img.shields.io/github/followers/sheharyarn?color=%231adba2&label=Follow%20on%20Github&style=flat-square
+[shield-site]: https://img.shields.io/badge/Visit-CloudUp.dev%20%E2%86%92-green?&style=flat-square&color=1adba2
+[social-twitter]: https://twitter.com/sheharyarn
+[social-github]: https://github.com/sheharyarn
+[github-fork]: https://github.com/sheharyarn/cloudup.dev/fork

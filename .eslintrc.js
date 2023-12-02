@@ -6,4 +6,4 @@ module.exports = {
   rules: {
     'react/jsx-pascal-case': ['enabled', { allowAllCaps: true }],
   },
-}
+};

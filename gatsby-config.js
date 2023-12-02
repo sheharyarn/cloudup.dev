@@ -1,12 +1,15 @@
+/**
+ * @type {import('gatsby').GatsbyConfig}
+ */
 module.exports = {
   siteMetadata: {
     title: `CloudUp`,
+    description: `Quick tools for development on the cloud`,
+    siteUrl: `https://cloudup.dev/`,
     author: {
       name: `Sheharyar Naseer`,
       website: `https://shyr.io/`,
     },
-    description: `Quick tools for development on the cloud`,
-    siteUrl: `https://cloudup.dev/`,
     social: {
       twitter: {
         user: 'sheharyarn',
@@ -18,8 +21,13 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-root-import`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
         name: `CloudUp`,
         short_name: `CloudUp`,
@@ -28,6 +36,12 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#1adba2`,
         display: `standalone`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ['G-CBXXCYT1HN'],
       },
     },
     {
@@ -55,42 +69,17 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 590,
-            },
-          },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          {
             resolve: `gatsby-remark-prismjs`,
             options: {
               aliases: {
                 conf: `nginx`,
-                sh: `shell`
-              }
-            }
+                sh: `shell`,
+              },
+            },
           },
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-sitemap`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: `UA-47788797-3`,
-      },
-    },
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-root-import`,
     {
       resolve: 'gatsby-plugin-sass',
       options: {
@@ -103,4 +92,4 @@ module.exports = {
       },
     },
   ],
-}
+};
