@@ -1,4 +1,4 @@
-name: Javascript
+name: JavaScript
 variants:
 
   - id: nodejs
@@ -9,11 +9,24 @@ variants:
       - dockerignore
     variables:
       - name:  'NODE_VERSION'
-        value: '20.11.0'
+        value: '20.10.0'
       - name:  'DEFAULT_ENV'
         value: 'production'
       - name:  'PORT'
         value: '8080'
       - name:  'APP_ENTRYPOINT'
         value: 'index.js'
+
+  - id: nestjs
+    name: NestJS App
+    description: NestJS Backend application
+    files:
+      - dockerfile
+      - packagejson
+      - dockerignore
+    variables:
+      - name:  'NODE_VERSION'
+        value: '20.10.0'
+      - name:  'PORT'
+        value: '3000'
 

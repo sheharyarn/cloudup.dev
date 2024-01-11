@@ -22,7 +22,7 @@ const ALL_CONTENT = `
     }
 
     readmes: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/^readme.md$/" } }
+      filter: { fileAbsolutePath: { regex: "/readme.md$/" } }
     ) {
       nodes {
         fileAbsolutePath
@@ -107,7 +107,6 @@ exports.createPages = async ({ graphql, actions }) => {
           .files
           .reduce((acc, filetype) => {
             const path = `./content/${variantRoot}/${filetype}`;
-            console.log('path', path)
             acc[filetype] = fs.readFileSync(path, 'utf-8');
             return acc;
           }, {});

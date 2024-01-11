@@ -152,13 +152,15 @@
     .readmeContent
       +padding($horz: 2rem)
 
-      p
+      p, ul, ol
         font-size: 1.5rem
 
-      pre, pre code
+      pre, code
         font-size: 1.2rem
         border-radius: $border-radius
 
+      ul li, ol li
+        +margin($top: 0.3rem)
 
     .opensource
       +infoSize

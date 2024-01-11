@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "start": "node dist/src/main"
+  }
+}
