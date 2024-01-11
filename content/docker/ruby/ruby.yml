@@ -9,7 +9,7 @@ variants:
       - dockerignore
     variables:
       - name:  'RUBY_VERSION'
-        value: '3.0'
+        value: '3.2.0'
       - name:  'APP_NAME'
         value: 'my_app'
       - name:  'ENTRYPOINT'
@@ -23,7 +23,7 @@ variants:
       - dockerignore
     variables:
       - name:  'RUBY_VERSION'
-        value: '3.0'
+        value: '3.2.0'
       - name:  'DEFAULT_ENV'
         value: 'production'
       - name:  'PORT'

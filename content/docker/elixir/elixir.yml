@@ -9,7 +9,7 @@ variants:
       - dockerignore
     variables:
       - name:  'ELIXIR_VERSION'
-        value: '1.10.4'
+        value: '1.16.0'
       - name:  'APP_NAME'
         value: 'my_app'
       - name:  'MIX_ENV'
@@ -25,7 +25,7 @@ variants:
       - dockerignore
     variables:
       - name:  'ELIXIR_VERSION'
-        value: '1.10.4'
+        value: '1.16.0'
       - name:  'APP_NAME'
         value: 'my_app'
       - name:  'MIX_ENV'

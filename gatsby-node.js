@@ -22,7 +22,7 @@ const ALL_CONTENT = `
     }
 
     readmes: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/.readme.md$/" } }
+      filter: { fileAbsolutePath: { regex: "/^readme.md$/" } }
     ) {
       nodes {
         fileAbsolutePath
@@ -97,7 +97,7 @@ exports.createPages = async ({ graphql, actions }) => {
     dockerNode.variants.forEach(variantData => {
       const variantId = variantData.id;
       const variantRoot = `docker/${platformId}/${variantId}`;
-      const readmePath = `/${variantRoot}/${variantId}.readme.md`;
+      const readmePath = `/${variantRoot}/readme.md`;
       const readmeNode = readmes.find(r => r.fileAbsolutePath.endsWith(readmePath));
       const readme = readmeNode && readmeNode.html;
 
@@ -106,7 +106,8 @@ exports.createPages = async ({ graphql, actions }) => {
         variantData
           .files
           .reduce((acc, filetype) => {
-            const path = `./content/${variantRoot}/${variantId}.${filetype}`;
+            const path = `./content/${variantRoot}/${filetype}`;
+            console.log('path', path)
             acc[filetype] = fs.readFileSync(path, 'utf-8');
             return acc;
           }, {});

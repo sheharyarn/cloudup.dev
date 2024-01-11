@@ -22,6 +22,12 @@ const SANITIZE_OPTS = {
   allowedAttributes: {}
 };
 
+const FILE_TYPES = {
+  dockerfile:    { name: 'Dockerfile',    icon: 'dockerfile' },
+  dockerignore:  { name: '.dockerignore', icon: 'file' },
+  packagejson:   { name: 'package.json',  icon: 'json' },
+};
+
 const prepareOneFile = (file, configVars, userVars) => {
   if (typeof file !== 'string')
     return null;
@@ -166,14 +172,15 @@ const FileView = ({ type, text }) => {
   const isMain = type === 'dockerfile';
   const [isOpen, setOpen] = React.useState(isMain);
   const klass = isOpen ? '' : styles.closed;
+  const { name, icon } = FILE_TYPES[type];
 
   const toggleOpen = () => setOpen(!isOpen);
 
   return (
     <div className={`${styles.file} ${klass}`}>
       <span className={styles.cardTitle}>
-        <Icon className={styles.icon} type={type} />
-        {_.capitalize(type)}
+        <Icon className={styles.icon} type={icon || type} />
+        {name || _.capitalize(type)}
 
         <button className={styles.toggleOpen} onClick={toggleOpen}>
           <Icon type="chevron" />
