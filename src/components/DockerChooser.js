@@ -55,7 +55,7 @@ const DockerChooser = (props) => {
       const path = URLs.docker.variant(platformId, variantId);
 
       // Don't set loading if already on page
-      setLoading(currentPath !== path);
+      // setLoading(currentPath !== path);
       navigate(path);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
