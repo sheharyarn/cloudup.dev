@@ -29,7 +29,7 @@
 
 The project contains a collection of optimized and production-ready Dockerfile images for different programming
 languages and frameworks. Just choose your language and variant in the dropdowns, and you'll be presented with
-a Dockerfile (along with helpful description in comments), ready to use in your project.
+a Dockerfile (along with a helpful description in comments), ready to use in your project.
 
 For minor customizations, just specify custom values in the settings box and a tailored Dockerfile will be
 generated for you on the fly.
@@ -50,7 +50,7 @@ Under construction.
 
 - [Fork][github-fork], Enhance, Send PR
 - Lock issues with any bugs or feature requests
-- Implement something from Roadmap
+- Implement something from the Roadmap
 - Spread the word :heart:
 
 <br>
