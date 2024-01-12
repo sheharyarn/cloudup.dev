@@ -40,10 +40,9 @@ generated for you on the fly.
 
 ## <img width="20" style="margin-right: 8px; margin-bottom: -2px;" src="https://user-images.githubusercontent.com/25181517/182534006-037f08b5-8e7b-4e5f-96b6-5d2a5558fa85.png" />Kubernetes Manifest Generator
 
-<img width="50" style="display: block; margin-bottom: 12px;" src="https://cdn-icons-png.flaticon.com/128/4930/4930409.png" />
 Under construction.
+<img width="50" style="display: block; margin-top: 12px;" src="https://cdn-icons-png.flaticon.com/128/4930/4930409.png" />
 
-<br/>
 <br/>
 
 ## <img width="20" style="margin-right: 8px; margin-bottom: -2px;" src="https://cdn-icons-png.flaticon.com/128/921/921347.png" />Contributing
