@@ -12,8 +12,8 @@
 </h4>
 
 <p align="center">
-  <b>Empowering Cloud Development with Robust Tools</b><br/>
-  <sub>Explore a curated collection of optimized Dockerfile images and community-driven configurations. Tailored for beginners, these tools simplify working with Docker, Kubernetes, and more.</sub>
+  <b>Tools to Jump-Start Cloud Development!</b><br/>
+  <sub>Explore community-sourced tools and configurations designed for beginners to simplify working with Docker, Kubernetes, and more.</sub>
 </p>
 
 <p align="center">
@@ -27,9 +27,12 @@
 
 ## [Dockerfile Collection][cloudup]
 
-Discover a meticulously crafted collection of optimized and production-ready Dockerfile images. Select your preferred language and variant from the dropdowns to access a fully-documented Dockerfile, ready for seamless integration into your project.
+This project features a curated collection of optimized and production-ready Dockerfile images for various programming
+languages and frameworks. Choose your preferred language and variant from the dropdowns, and instantly access a Dockerfile
+complete with helpful descriptions in comments—ready to integrate into your project.
 
-For nuanced customizations, effortlessly specify custom values in the settings box, triggering the dynamic generation of a tailored Dockerfile.
+For minor customizations, simply specify custom values in the settings box, and a tailored Dockerfile will be
+generated for you on the fly.
 
 [Try it out →][cloudup]
 
@@ -46,7 +49,7 @@ For nuanced customizations, effortlessly specify custom values in the settings b
 - [Fork][github-fork], Enhance, Send PR
 - Report bugs or request features by creating issues
 - Contribute to the roadmap
-- Support community growth :heart:
+- Help spread the word :heart:
 
 <br>
 
