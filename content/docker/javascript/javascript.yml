@@ -30,3 +30,16 @@ variants:
       - name:  'PORT'
         value: '3000'
 
+  - id: bunjs
+    name: Basic Bun.js Apps
+    description: Simple BunJS applications
+    files:
+      - dockerfile
+      - dockerignore
+    variables:
+      - name:  'BUN_VERSION'
+        value: 'latest'
+      - name:  'PORT'
+        value: '8080'
+      - name:  'APP_ENTRYPOINT'
+        value: 'index.ts'
