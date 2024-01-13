@@ -8,29 +8,50 @@
   +media-breakpoint-up(medium)
     +margin($horz: auto)
 
-  .row
-    +flex-center($direction: row)
-    +margin($top: 4rem)
+  .form
+    +flex-center($direction: column)
 
-    +media-breakpoint-down(small)
-      flex-direction: column
+    .row
+      +flex-center($direction: row)
+      +margin($top: 4rem)
 
-    .group
-      display: inline-block
+      +media-breakpoint-down(small)
+        flex-direction: column
 
-      label
-        +control-label
+      .group
+        display: inline-block
 
-      select
-        +input-select
-        +margin($bottom: 2rem)
-        font-size: 2rem
-        line-height: normal
+        label
+          +control-label
 
-      +media-breakpoint-up(medium)
-        &:first-child
-          +margin($right: 5rem)
+        select
+          +input-select
+          +margin($bottom: 2rem)
+          font-size: 2rem
+          line-height: normal
 
+        +media-breakpoint-up(medium)
+          &:first-child
+            +margin($right: 5rem)
+
+    button
+      font-size: 2rem
+      font-weight: bold
+      min-width: 100px
+      padding: 10px 20px
+      background-color: $gray-800
+      border: none
+      border-radius: 5px
+      color: $gray-100
+      margin-top: 1rem
+      cursor: pointer
+
+      &:hover
+        background-color: #2980b9
+
+      &:disabled
+        background-color: #bdc3c7
+        cursor: not-allowed
 
   // Inverse Overrides
   &.inverse
