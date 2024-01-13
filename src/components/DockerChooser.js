@@ -91,27 +91,30 @@ const DockerChooser = (props) => {
           </select>
         </div>
 
-        <div className={styles.group}>
-          <label htmlFor="docker-variant">Variant</label>
+        {platformId && (
+          <div className={styles.group}>
+            <label htmlFor="docker-variant">Variant</label>
 
-          {/* eslint-disable-next-line jsx-a11y/no-onchange */}
-          <select
-            id="docker-variant"
-            value={variantId}
-            disabled={isLoading}
-            onChange={e => setVariant(e.target.value)}
-          >
-            <option value="" disabled>
-              Choose Variant
-            </option>
-
-            {availableVariants.map(v => (
-              <option key={v.id} value={v.id}>
-                {v.name}
+            {/* eslint-disable-next-line jsx-a11y/no-onchange */}
+            <select
+              id="docker-variant"
+              value={variantId}
+              disabled={isLoading}
+              onChange={(e) => setVariant(e.target.value)}
+              autoFocus={Boolean(platformId)}
+            >
+              <option value="" disabled>
+                Choose Variant
               </option>
-            ))}
-          </select>
-        </div>
+
+              {availableVariants.map((v) => (
+                <option key={v.id} value={v.id}>
+                  {v.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
       </form>
     </div>
   );
