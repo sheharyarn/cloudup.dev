@@ -1,6 +1,5 @@
 # Use the official Alpine Python base image
-FROM python:@{PYTHON_VERSION}-alpine
-
+FROM python:${PYTHON_VERSION}-alpine
 
 # Set Environment variables
 ARG FLASK_ENV=@{DEFAULT_ENV}
