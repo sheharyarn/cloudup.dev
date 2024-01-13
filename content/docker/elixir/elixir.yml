@@ -2,7 +2,7 @@ name: Elixir
 variants:
 
   - id: basic
-    name: Basic Elixir Apps
+    name: Basic Elixir App
     description: Simple & pure Elixir applications without any framework
     files:
       - dockerfile

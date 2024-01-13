@@ -81,7 +81,7 @@ const VariantTemplate = ({ data, location, pageContext }) => {
         />
       }>
       <SEO
-        title={`Dockerfile for ${variant.name} - Dockerize Your Apps`}
+        title={`Dockerfile for ${variant.name} (${platform.name}) - Dockerize Your Apps`}
         description={`Generate optimized and production-ready docker configs for ${variant.name} or other types of ${platform.name} apps`}
       />
 
@@ -202,7 +202,10 @@ const FileView = ({ type, text }) => {
 
 const Banner = ({ platform, variant }) => (
   <div className={styles.banner}>
-    <h1>{variant.name}</h1>
+    <h1>
+      {variant.name + ' '}
+      <span className={styles.screenReader}>Dockerfile</span>
+    </h1>
     {/*<h2>{platform.name}</h2>*/}
     <hr/>
     <p>Get started with Docker for your {platform.name} project with optimized and production-ready configs below</p>

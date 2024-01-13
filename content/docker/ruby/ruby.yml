@@ -2,7 +2,7 @@ name: Ruby
 variants:
 
   - id: script
-    name: Simple Ruby Scripts
+    name: Simple Ruby Script
     description: Dockerfile Generator for basic Ruby scripts and apps without any specific framework
     files:
       - dockerfile
@@ -16,7 +16,7 @@ variants:
         value: 'main.rb'
 
   - id: sinatra
-    name: Sinatra Web Apps
+    name: Sinatra Web App
     description: Dockerize Sinatra or Rack web applications in Ruby
     files:
       - dockerfile

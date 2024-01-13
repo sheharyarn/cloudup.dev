@@ -2,7 +2,7 @@ name: Python
 variants:
 
   - id: script
-    name: Simple Python Scripts
+    name: Simple Python Script
     description: Dockerfile Generator for basic Python scripts and apps without any specific framework
     files:
       - dockerfile
@@ -18,7 +18,7 @@ variants:
         value: 'script.py'
 
   - id: flask
-    name: Flask Web Apps
+    name: Flask Web App
     description: Dockerfile Generator for web applications built with Flask
     files:
       - dockerfile

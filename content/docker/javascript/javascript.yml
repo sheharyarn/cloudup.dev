@@ -2,7 +2,7 @@ name: JavaScript
 variants:
 
   - id: nodejs
-    name: Basic Node.js Apps
+    name: Basic Node.js App
     description: Simple Node.js applications
     files:
       - dockerfile
@@ -25,6 +25,8 @@ variants:
       - packagejson
       - dockerignore
     variables:
+      - name:  'APP_NAME'
+        value: 'my_app'
       - name:  'NODE_VERSION'
         value: '20.10.0'
       - name:  'PORT'
