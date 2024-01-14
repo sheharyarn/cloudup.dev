@@ -5,7 +5,6 @@ import URLs from 'src/utils/urls';
 
 import * as styles from './Footer.module.sass';
 
-
 const SITE_QUERY = graphql`
   query {
     site {
@@ -13,22 +12,26 @@ const SITE_QUERY = graphql`
         title
         description
         social {
-          twitter { user }
-          github { user, repo }
+          twitter {
+            user
+          }
+          github {
+            user
+            repo
+          }
         }
       }
     }
   }
 `;
 
-
 const Footer = () => {
   const data = useStaticQuery(SITE_QUERY);
   const social = data.site.siteMetadata.social;
 
   const twitterUser = social.twitter.user;
-  const twitterUrl  = URLs.twitter.profile(twitterUser);
-  const githubUrl   = URLs.github.repo(social.github.user, social.github.repo);
+  const twitterUrl = URLs.twitter.profile(twitterUser);
+  const githubUrl = URLs.github.repo(social.github.user, social.github.repo);
 
   return (
     <footer id="footer" className={styles.footer}>
@@ -45,11 +48,11 @@ const Footer = () => {
       <span className={styles.separator}> • </span>
 
       <span className={styles.text}>
-        Learn more at <ExternalLink url="https://shyr.io/">shyr.io</ExternalLink>
+        Learn more at{' '}
+        <ExternalLink url="https://shyr.io/">shyr.io</ExternalLink>
       </span>
     </footer>
   );
 };
-
 
 export default Footer;

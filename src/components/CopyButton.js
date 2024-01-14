@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-
 const CopyButton = ({ text, className }) => {
   const [hasCopied, setCopied] = useState(false);
   const label = hasCopied ? 'Copied!' : 'Copy';
-
 
   useEffect(() => {
     if (hasCopied) {
@@ -15,12 +13,10 @@ const CopyButton = ({ text, className }) => {
     return undefined;
   }, [hasCopied]);
 
-
   const onClick = () => {
     navigator.clipboard.writeText(text);
     setCopied(true);
   };
-
 
   return (
     <button className={className} onClick={onClick}>
@@ -28,6 +24,5 @@ const CopyButton = ({ text, className }) => {
     </button>
   );
 };
-
 
 export default CopyButton;

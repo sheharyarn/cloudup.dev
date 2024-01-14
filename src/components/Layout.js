@@ -3,14 +3,15 @@ import Header, { HeaderWithContent } from 'src/components/Header';
 import Footer from 'src/components/Footer';
 import URLs from 'src/utils/urls';
 
-import 'src/styles/base.sass'
-
+import 'src/styles/base.sass';
 
 const Layout = ({ location, title, headerContent, children }) => {
   const header =
-    (location.pathname === URLs.root())
-      ? <Header />
-      : <HeaderWithContent title={title} content={headerContent} />
+    location.pathname === URLs.root() ? (
+      <Header />
+    ) : (
+      <HeaderWithContent title={title} content={headerContent} />
+    );
 
   return (
     <div id="page">
@@ -23,6 +24,5 @@ const Layout = ({ location, title, headerContent, children }) => {
     </div>
   );
 };
-
 
 export default Layout;

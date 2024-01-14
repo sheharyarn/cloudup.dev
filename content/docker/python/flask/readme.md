@@ -14,4 +14,3 @@ $ docker run -it --rm -p @{PORT}:@{PORT} @{APP_NAME}:v1
 ```
 
 Your Flask app should now be accessible from your browser on the specified port.
-

@@ -1,53 +1,48 @@
-import React     from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { navigate, graphql, useStaticQuery } from 'gatsby';
 
-import URLs        from 'src/utils/urls';
+import URLs from 'src/utils/urls';
 import * as styles from './DockerChooser.module.sass';
-
-
 
 const DOCKER_CONTENT = graphql`
   {
-    allPlatforms: allYaml(filter: {fields: {tool: {eq: "docker"}}}) {
+    allPlatforms: allYaml(filter: { fields: { tool: { eq: "docker" } } }) {
       nodes {
         name
         variants {
           id
           name
         }
-        fields { platformId }
+        fields {
+          platformId
+        }
       }
     }
   }
 `;
 
-
-
 const DockerChooser = (props) => {
-  const platforms =
-    useStaticQuery(DOCKER_CONTENT)
-      .allPlatforms
-      .nodes
-      .map(p => ({
-        id: p.fields.platformId,
-        name: p.name,
-        variants: p.variants
-      }));
-
+  const platforms = useStaticQuery(DOCKER_CONTENT).allPlatforms.nodes.map(
+    (p) => ({
+      id: p.fields.platformId,
+      name: p.name,
+      variants: p.variants,
+    })
+  );
 
   const [isLoading, setLoading] = React.useState(false);
   const [platformId, setPlatform] = React.useState(props.platformId);
   const [variantId, setVariant] = React.useState(props.variantId);
-  const currentPath = typeof window === 'undefined' ? null : window.location.pathname;
+  const currentPath =
+    typeof window === 'undefined' ? null : window.location.pathname;
 
   // Find the available variants for the platform object whenever a
   // platform is selected
   const availableVariants = React.useMemo(() => {
-    const chosen = platforms.find(p => p.id === platformId);
+    const chosen = platforms.find((p) => p.id === platformId);
     return (chosen && chosen.variants) || [];
   }, [platforms, platformId]);
-
 
   // Navigate to the appropriate page when variant is selected
   React.useEffect(() => {
@@ -74,7 +69,7 @@ const DockerChooser = (props) => {
             id="docker-platform"
             value={platformId}
             disabled={isLoading}
-            onChange={e => {
+            onChange={(e) => {
               setPlatform(e.target.value);
               setVariant('');
             }}
@@ -83,7 +78,7 @@ const DockerChooser = (props) => {
               Choose Platform
             </option>
 
-            {platforms.map(p => (
+            {platforms.map((p) => (
               <option key={p.id} value={p.id}>
                 {p.name}
               </option>
@@ -99,13 +94,13 @@ const DockerChooser = (props) => {
             id="docker-variant"
             value={variantId}
             disabled={isLoading}
-            onChange={e => setVariant(e.target.value)}
+            onChange={(e) => setVariant(e.target.value)}
           >
             <option value="" disabled>
               Choose Variant
             </option>
 
-            {availableVariants.map(v => (
+            {availableVariants.map((v) => (
               <option key={v.id} value={v.id}>
                 {v.name}
               </option>
@@ -117,17 +112,14 @@ const DockerChooser = (props) => {
   );
 };
 
-
 DockerChooser.propTypes = {
   platformId: PropTypes.string.isRequired,
-  variantId:  PropTypes.string.isRequired,
+  variantId: PropTypes.string.isRequired,
 };
-
 
 DockerChooser.defaultProps = {
   platformId: '',
   variantId: '',
 };
-
 
 export default DockerChooser;

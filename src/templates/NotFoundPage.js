@@ -10,7 +10,9 @@ const NotFoundPage = ({ data, location }) => {
 
       <div className={styles.container}>
         <h1 className={styles.fof}>404 Not Found</h1>
-        <h2 className={styles.heading}>You sure you&apos;re in the right place?</h2>
+        <h2 className={styles.heading}>
+          You sure you&apos;re in the right place?
+        </h2>
       </div>
     </Layout>
   );

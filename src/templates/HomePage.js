@@ -1,11 +1,10 @@
-import React         from 'react';
+import React from 'react';
 
 import DockerChooser from 'src/components/DockerChooser';
-import Layout        from 'src/components/Layout';
-import SEO           from 'src/components/SEO';
+import Layout from 'src/components/Layout';
+import SEO from 'src/components/SEO';
 
-import * as styles   from './HomePage.module.sass';
-
+import * as styles from './HomePage.module.sass';
 
 const HomePage = ({ data, location }) => {
   return (
@@ -17,17 +16,16 @@ const HomePage = ({ data, location }) => {
           <h2>Dockerize your Apps</h2>
 
           <p>
-            Use our community sourced Dockerfile generator to quickly
-            set up Docker for your next project with optimized and
-            production-ready images and configs
+            Use our community sourced Dockerfile generator to quickly set up
+            Docker for your next project with optimized and production-ready
+            images and configs
           </p>
 
           <DockerChooser />
         </div>
       </div>
     </Layout>
-  )
+  );
 };
-
 
 export default HomePage;
