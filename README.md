@@ -12,8 +12,8 @@
 </h4>
 
 <p align="center">
-  <b>Tools to jump-start development on the cloud!</b><br/>
-  <sub>Community sourced tools and configurations for beginners to simplify working with Docker, Kubernetes and more</sub>
+  <b>Tools to Jump-Start Cloud Development!</b><br/>
+  <sub>Explore community-sourced tools and configurations designed for beginners to simplify working with Docker, Kubernetes, and more.</sub>
 </p>
 
 <p align="center">
@@ -27,11 +27,11 @@
 
 ## [Dockerfile Collection][cloudup]
 
-The project contains a collection of optimized and production-ready Dockerfile images for different programming
-languages and frameworks. Just choose your language and variant in the dropdowns, and you'll be presented with
-a Dockerfile (along with helpful description in comments), ready to use in your project.
+This project features a curated collection of optimized and production-ready Dockerfile images for various programming
+languages and frameworks. Choose your preferred language and variant from the dropdowns, and instantly access a Dockerfile
+complete with helpful descriptions in comments—ready to integrate into your project.
 
-For minor customizations, just specify custom values in the settings box and a tailored Dockerfile will be
+For minor customizations, simply specify custom values in the settings box, and a tailored Dockerfile will be
 generated for you on the fly.
 
 [Try it out →][cloudup]
@@ -40,16 +40,16 @@ generated for you on the fly.
 
 ## Kubernetes Manifest Generator
 
-Under construction.
+🚧 **Under Construction.**
 
 <br/>
 
 ## Contributing
 
 - [Fork][github-fork], Enhance, Send PR
-- Lock issues with any bugs or feature requests
-- Implement something from Roadmap
-- Spread the word :heart:
+- Report bugs or request features by creating issues
+- Contribute to the roadmap
+- Help spread the word :heart:
 
 <br>
 
