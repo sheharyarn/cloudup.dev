@@ -27,7 +27,7 @@
 
 ## [Dockerfile Collection][cloudup]
 
-The project contains a collection of optimized and production-ready Dockerfile images for different programming
+This project contains a collection of optimized and production-ready Dockerfile images for different programming
 languages and frameworks. Just choose your language and variant in the dropdowns, and you'll be presented with
 a Dockerfile (along with helpful description in comments), ready to use in your project.
 
@@ -38,20 +38,80 @@ generated for you on the fly.
 
 <br/>
 
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Scripts](#scripts)
+- [Development Dependencies](#development-dependencies)
+- [Contributing](#contributing)
+- [Kubernetes Manifest Generator](#kubernetes-manifest-generator)
+- [License](#license)
+
+## Installation
+
+To install all the dependencies of the project. Run the following command in your terminal
+
+```bash
+npm install 
+```
+## Usage
+
+Once the dependencies are installed, you can start the local development server using the following command:
+
+```bash
+npm run start 
+```
+
+This will launch the Gatsby development server, and you can access your site at **http://localhost:8000**
+
+## Development Dependencies
+  This project includes the following development dependencies:
+
+  - `gatsby-plugin-root-import: Version 2.0.9`
+  - This plugin allows you to use absolute imports in your Gatsby project, making import paths more concise.
+  - `prettier: Version 3.1.1`
+  - Prettier is a code formatter that ensures consistent code style in your project.
+
+## Scripts
+The following scripts are available for common tasks:
+
+- Clean the Gatsby cache and public directories.
+
+```bash
+npm run clean 
+```
+- Format project files using Prettier.
+
+```bash
+npm run format 
+```
+
+- Serve the production build locally.
+
+```bash
+npm run serve 
+```
+
+- Build the Gatsby project for production.
+
+```bash
+npm run build 
+```
+
+
 ## Kubernetes Manifest Generator
 
 Under construction.
 
-<br/>
-
 ## Contributing
+  Pull requests are welcome. Just follow the following steps to get started
 
-- [Fork][github-fork], Enhance, Send PR
+- [Fork][github-fork] the repository, Enhance, Send PR
 - Lock issues with any bugs or feature requests
 - Implement something from Roadmap
 - Spread the word :heart:
 
-<br>
 
 ## License
 
