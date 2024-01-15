@@ -108,3 +108,20 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 };
+
+exports.onCreateWebpackConfig = ({ actions, stage }) => {
+  // Fix issue where NProgress cannot be imported during build stage
+  // https://github.com/gatsbyjs/gatsby/issues/8612
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /accessible-nprogress/,
+            use: ['null-loader'],
+          },
+        ],
+      },
+    });
+  }
+};
