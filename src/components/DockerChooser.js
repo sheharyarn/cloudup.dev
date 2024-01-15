@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import NProgress from 'accessible-nprogress';
 import { navigate, graphql, useStaticQuery } from 'gatsby';
 
 import URLs from 'src/utils/urls';
@@ -51,6 +52,7 @@ const DockerChooser = (props) => {
 
       // Don't set loading if already on page
       // setLoading(currentPath !== path);
+      NProgress.start();
       navigate(path);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

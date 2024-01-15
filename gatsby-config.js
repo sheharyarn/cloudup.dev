@@ -49,6 +49,7 @@ module.exports = {
       options: {
         color: 'white',
         showSpinner: true,
+        minimum: 0.15,
       },
     },
     {
