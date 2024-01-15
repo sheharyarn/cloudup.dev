@@ -25,11 +25,11 @@
 <br/>
 <!-- Heading: End -->
 
-## [Dockerfile Collection][cloudup]
+## <img width="25" style="margin-right: 8px; margin-bottom: -2px;" src="https://user-images.githubusercontent.com/25181517/117207330-263ba280-adf4-11eb-9b97-0ac5b40bc3be.png" />[Dockerfile Collection][cloudup]
 
 The project contains a collection of optimized and production-ready Dockerfile images for different programming
 languages and frameworks. Just choose your language and variant in the dropdowns, and you'll be presented with
-a Dockerfile (along with helpful description in comments), ready to use in your project.
+a Dockerfile (along with a helpful description in comments), ready to use in your project.
 
 For minor customizations, just specify custom values in the settings box and a tailored Dockerfile will be
 generated for you on the fly.
@@ -38,22 +38,23 @@ generated for you on the fly.
 
 <br/>
 
-## Kubernetes Manifest Generator
+## <img width="20" style="margin-right: 8px; margin-bottom: -2px;" src="https://user-images.githubusercontent.com/25181517/182534006-037f08b5-8e7b-4e5f-96b6-5d2a5558fa85.png" />Kubernetes Manifest Generator
 
 Under construction.
+<img width="50" style="display: block; margin-top: 12px;" src="https://cdn-icons-png.flaticon.com/128/4930/4930409.png" />
 
 <br/>
 
-## Contributing
+## <img width="20" style="margin-right: 8px; margin-bottom: -2px;" src="https://cdn-icons-png.flaticon.com/128/921/921347.png" />Contributing
 
 - [Fork][github-fork], Enhance, Send PR
 - Lock issues with any bugs or feature requests
-- Implement something from Roadmap
+- Implement something from the Roadmap
 - Spread the word :heart:
 
 <br>
 
-## License
+## <img width="20" style="margin-right: 8px; margin-bottom: -2px;" src="https://cdn-icons-png.flaticon.com/128/1728/1728431.png" />License
 
 This source code is available as open source under the terms of the [MIT License][license].
 
