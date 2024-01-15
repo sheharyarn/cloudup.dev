@@ -5,7 +5,7 @@ root directory.
 You can now run the following command to build the docker image:
 
 ```
-$ docker build --pull -t {APP_NAME} .
+$ docker build -t @{APP_NAME}:v1 .
 ```
 
 The `-t` flag lets us specify a name for the image, and `--pull` tells Docker to automatically download the latest version of the base image (oven/bun).
@@ -13,7 +13,7 @@ The `-t` flag lets us specify a name for the image, and `--pull` tells Docker to
 To run the built docker image:
 
 ```
-$ docker run -it -p @{PORT}:@{PORT} {APP_NAME}
+$ docker run -it --rm -p @{PORT}:@{PORT} @{APP_NAME}:v1
 ```
 
 You should now be able to open the app in your browser on the specified port.

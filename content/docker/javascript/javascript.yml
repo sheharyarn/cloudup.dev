@@ -33,12 +33,14 @@ variants:
         value: '3000'
 
   - id: bunjs
-    name: Basic Bun.js Apps
-    description: Simple BunJS applications
+    name: Bun.js App
+    description: Bun.js Applications
     files:
       - dockerfile
       - dockerignore
     variables:
+      - name:  'APP_NAME'
+        value: 'my_app'
       - name:  'BUN_VERSION'
         value: 'latest'
       - name:  'PORT'
