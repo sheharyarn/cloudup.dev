@@ -61,7 +61,7 @@ RUN mix release
 FROM source
 ARG MIX_ENV
 ENV MIX_ENV ${MIX_ENV}
-ENV APP_NAME @{APP_NAME}
+ENV APP_NAME ${APP_NAME}
 
 
 # Create user and limit permissions

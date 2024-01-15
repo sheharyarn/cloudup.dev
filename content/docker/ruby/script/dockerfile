@@ -1,5 +1,5 @@
 # Use the official Alpine Ruby base image
-FROM ruby:@{RUBY_VERSION}-alpine
+FROM ruby:${RUBY_VERSION}-alpine
 
 
 # Set the app directory

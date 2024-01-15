@@ -1,8 +1,8 @@
 # Build the release
 # -----------------
 
-FROM elixir:@{ELIXIR_VERSION}-alpine as build
-ENV MIX_ENV=@{MIX_ENV}
+FROM elixir:${ELIXIR_VERSION}-alpine as build
+ENV MIX_ENV=${MIX_ENV}
 
 # Install Hex and Rebar
 WORKDIR /source
@@ -26,7 +26,7 @@ RUN mix do compile, release
 # -----------
 
 # The application is run in a separate stage so the source
-# code and other build-time dependencies are not included
+# Code and other build-time dependencies are not included
 
 FROM elixir:@{ELIXIR_VERSION}-alpine
 EXPOSE @{PORT}
